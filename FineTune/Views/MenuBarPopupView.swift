@@ -309,9 +309,7 @@ struct MenuBarPopupView: View {
     private func openSettingsWindow() {
         exitEditModeSaving()
         NSApp.keyWindow?.resignKey()
-        if let delegate = NSApp.delegate as? AppDelegate {
-            delegate.showSettingsWindow()
-        }
+        AppDelegate.shared?.showSettingsWindow()
     }
 
     // MARK: - Main Content

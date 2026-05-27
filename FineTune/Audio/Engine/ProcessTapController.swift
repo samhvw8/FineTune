@@ -1059,7 +1059,7 @@ final class ProcessTapController: ProcessTapControlling {
     }
 
     @inline(__always)
-    static func processMappedBuffers(
+    nonisolated static func processMappedBuffers(
         inputBuffers: UnsafeMutableAudioBufferListPointer,
         outputBuffers: UnsafeMutableAudioBufferListPointer,
         targetVol: Float,
@@ -1231,7 +1231,7 @@ final class ProcessTapController: ProcessTapControlling {
     /// - Use Objective-C messaging
     /// - Call print/logging functions
     /// - Perform file/network I/O
-    private func processAudioCallback(
+    nonisolated private func processAudioCallback(
         _ inputBufferList: UnsafePointer<AudioBufferList>,
         to outputBufferList: UnsafeMutablePointer<AudioBufferList>,
         callbackID: UInt32

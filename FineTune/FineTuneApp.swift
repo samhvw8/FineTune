@@ -27,6 +27,7 @@ final class MenuBarPopupPanel: NSPanel {
         isFloatingPanel = true
         level = .statusBar
         isOpaque = false
+        backgroundColor = .clear
         titleVisibility = .hidden
         titlebarAppearsTransparent = true
         animationBehavior = .none
@@ -44,6 +45,10 @@ final class MenuBarPopupPanel: NSPanel {
 
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate {
+    /// Direct reference — `NSApp.delegate as? AppDelegate` fails because
+    /// `@NSApplicationDelegateAdaptor` wraps the instance in a SwiftUI proxy.
+    static weak var shared: AppDelegate?
+
     var audioEngine: AudioEngine?
     var settingsWindowController: NSWindowController?
     var settingsContentProvider: (() -> AnyView)?
@@ -56,8 +61,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
     var popupContentProvider: (() -> AnyView)?
     /// Event monitor for dismiss-on-click-outside behavior.
     private var globalEventMonitor: Any?
+    /// Local event monitor for Cmd+, settings shortcut.
+    private var localEventMonitor: Any?
+    /// Observer for hosting view intrinsic content size changes.
+    private var sizeObserver: NSObjectProtocol?
     /// Guards against re-entrant dismiss calls during fade animation.
     private var isDismissing = false
+    /// Incremented each time showPopup() starts a new show cycle so the
+    /// dismiss animation completion handler can detect a stale cycle.
+    private var showCycleID: UInt = 0
     /// Icon to set on the status item once it's created. Stored during init,
     /// applied in applicationDidFinishLaunching when NSApplication is ready.
     var pendingLaunchIcon: NSImage?
@@ -89,6 +101,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        AppDelegate.shared = self
+
         // Close any windows that the WindowGroup scene may auto-open.
         // LSUIElement apps should have zero visible windows at launch.
         for window in NSApp.windows {
@@ -108,12 +122,33 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
                 onStatusItemReady = nil
             }
         }
+
+        // Cmd+, opens Settings (replaces the SwiftUI Settings scene shortcut).
+        localEventMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
+            if event.modifierFlags.contains(.command) && event.charactersIgnoringModifiers == "," {
+                self?.showSettingsWindow()
+                return nil
+            }
+            return event
+        }
+    }
+
+    func applicationWillTerminate(_ notification: Notification) {
+        removeGlobalEventMonitor()
+        if let monitor = localEventMonitor {
+            NSEvent.removeMonitor(monitor)
+            localEventMonitor = nil
+        }
+        if let observer = sizeObserver {
+            NotificationCenter.default.removeObserver(observer)
+            sizeObserver = nil
+        }
     }
 
     func showSettingsWindow() {
         if let wc = settingsWindowController {
             wc.window?.makeKeyAndOrderFront(nil)
-            NSApp.activate(ignoringOtherApps: true)
+            NSApp.activate()
             return
         }
         guard let contentProvider = settingsContentProvider else { return }
@@ -130,7 +165,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
         let wc = NSWindowController(window: window)
         settingsWindowController = wc
         wc.showWindow(nil)
-        NSApp.activate(ignoringOtherApps: true)
+        NSApp.activate()
     }
 
     // MARK: - Status Item
@@ -152,6 +187,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
     // MARK: - Popup Panel
 
     func togglePopup() {
+        if isDismissing {
+            // Dismiss animation in flight — cancel it and re-show.
+            cancelDismissAndShow()
+            return
+        }
         guard let panel = popupPanel else {
             showPopup()
             return
@@ -160,6 +200,23 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
             dismissPopup()
         } else {
             showPopup()
+        }
+    }
+
+    private func cancelDismissAndShow() {
+        guard let panel = popupPanel else { return }
+        // Cancel the in-flight fade by snapping to fully visible.
+        panel.animator().alphaValue = 1
+        panel.alphaValue = 1
+        isDismissing = false
+        showCycleID &+= 1
+        panel.makeKeyAndOrderFront(nil)
+        statusItem?.button?.highlight(true)
+        NSApp.activate()
+        if globalEventMonitor == nil {
+            globalEventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown]) { [weak self] _ in
+                self?.dismissPopup()
+            }
         }
     }
 
@@ -176,19 +233,19 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
             popupPanel = panel
 
             let hostingView = NSHostingView(rootView: contentProvider())
+            hostingView.postsFrameChangedNotifications = true
+            sizeObserver = NotificationCenter.default.addObserver(
+                forName: NSView.frameDidChangeNotification,
+                object: hostingView,
+                queue: .main
+            ) { [weak self] _ in
+                guard let self else { return }
+                MainActor.assumeIsolated { self.updatePanelSize() }
+            }
             panel.contentView = hostingView
         }
 
-        // Size the panel from the hosting view's fitting size.
-        if let hostingView = panel.contentView {
-            let fittingSize = hostingView.fittingSize
-            if fittingSize.width > 10 && fittingSize.height > 10 {
-                panel.setContentSize(fittingSize)
-            } else {
-                panel.setContentSize(NSSize(width: 360, height: 500))
-            }
-        }
-
+        updatePanelSize(panel)
         positionPanelBelowButton(panel, button: button)
 
         // Persist the menu bar in full screen mode (same notification FluidMenuBarExtra used).
@@ -196,15 +253,33 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
             name: Notification.Name("com.apple.HIToolbox.beginMenuTrackingNotification"),
             object: nil
         )
+        showCycleID &+= 1
         isDismissing = false
         panel.alphaValue = 1
-        NSApp.activate(ignoringOtherApps: true)
+        NSApp.activate()
         panel.makeKeyAndOrderFront(nil)
         statusItem?.button?.highlight(true)
 
         // Start global event monitor for clicks outside
-        globalEventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown]) { [weak self] _ in
-            self?.dismissPopup()
+        if globalEventMonitor == nil {
+            globalEventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown]) { [weak self] _ in
+                self?.dismissPopup()
+            }
+        }
+    }
+
+    /// Re-read the hosting view's fitting size and resize the panel + reposition.
+    func updatePanelSize(_ panel: MenuBarPopupPanel? = nil) {
+        guard let panel = panel ?? popupPanel,
+              let hostingView = panel.contentView else { return }
+        let fittingSize = hostingView.fittingSize
+        if fittingSize.width > 10 && fittingSize.height > 10 {
+            panel.setContentSize(fittingSize)
+        } else {
+            panel.setContentSize(NSSize(width: 360, height: 500))
+        }
+        if panel.isVisible, let button = statusItem?.button {
+            positionPanelBelowButton(panel, button: button)
         }
     }
 
@@ -244,20 +319,28 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
             object: nil
         )
 
-        if let monitor = globalEventMonitor {
-            NSEvent.removeMonitor(monitor)
-            globalEventMonitor = nil
-        }
+        removeGlobalEventMonitor()
 
+        let cycleAtDismiss = showCycleID
         NSAnimationContext.runAnimationGroup { context in
             context.duration = 0.3
             context.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
             panel.animator().alphaValue = 0
         } completionHandler: { [weak self] in
+            guard let self else { return }
+            // A new show cycle started during the fade — don't hide the panel.
+            guard self.showCycleID == cycleAtDismiss else { return }
             panel.orderOut(nil)
             panel.alphaValue = 1
-            self?.statusItem?.button?.highlight(false)
-            self?.isDismissing = false
+            self.statusItem?.button?.highlight(false)
+            self.isDismissing = false
+        }
+    }
+
+    private func removeGlobalEventMonitor() {
+        if let monitor = globalEventMonitor {
+            NSEvent.removeMonitor(monitor)
+            globalEventMonitor = nil
         }
     }
 }
