@@ -1,8 +1,6 @@
 // FineTune/Views/MenuBar/MenuBarIconCoordinator.swift
-// Owns NSStatusBarButton.image mutation. FluidMenuBarExtra sets the image
-// once at init and never touches it again, so we locate the button by
-// walking NSApp.windows for the NSStatusBarButton whose accessibilityTitle
-// was set to "FineTune" by the library, and crossfade images directly.
+// Owns NSStatusBarButton.image mutation. The AppDelegate sets up the
+// NSStatusItem and passes the button reference directly via `statusButton`.
 
 import AppKit
 import AudioToolbox
@@ -15,6 +13,8 @@ final class MenuBarIconCoordinator {
     private let settings: SettingsManager
     private let logger = Logger(subsystem: "com.finetuneapp.FineTune", category: "MenuBarIconCoordinator")
 
+    /// Direct reference set by FineTuneApp.init after the status item is created.
+    weak var statusButton: NSStatusBarButton?
     private weak var cachedButton: NSStatusBarButton?
     private var flashWorkItem: DispatchWorkItem?
     private var flashActiveSymbol: String?
@@ -109,7 +109,7 @@ final class MenuBarIconCoordinator {
             return
         }
         guard retriesLeft > 0 else {
-            logger.error("Menu bar button not found after 20 tries (1s); icon will remain at FluidMenuBarExtra placeholder until next state change")
+            logger.error("Menu bar button not found after 20 tries (1s); icon will remain at launch placeholder until next state change")
             return
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { [weak self] in
@@ -163,25 +163,11 @@ final class MenuBarIconCoordinator {
 
     private func resolveButton() -> NSStatusBarButton? {
         if let cached = cachedButton { return cached }
-        for window in NSApp.windows {
-            guard let contentView = window.contentView else { continue }
-            if let button = findStatusBarButton(in: contentView, matching: "FineTune") {
-                button.wantsLayer = true
-                cachedButton = button
-                return button
-            }
-        }
-        return nil
-    }
-
-    private func findStatusBarButton(in view: NSView, matching title: String) -> NSStatusBarButton? {
-        if let button = view as? NSStatusBarButton, button.accessibilityTitle() == title {
-            return button
-        }
-        for subview in view.subviews {
-            if let match = findStatusBarButton(in: subview, matching: title) {
-                return match
-            }
+        // Prefer the direct reference set by FineTuneApp.init.
+        if let direct = statusButton {
+            direct.wantsLayer = true
+            cachedButton = direct
+            return direct
         }
         return nil
     }

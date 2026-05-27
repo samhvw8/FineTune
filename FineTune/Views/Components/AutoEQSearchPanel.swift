@@ -4,6 +4,7 @@ import SwiftUI
 /// Search panel for selecting AutoEQ headphone correction profiles.
 /// Two-zone layout: Status Zone (profile card or empty state)
 /// above Browse Zone (search + favorites/results + import).
+@MainActor
 struct AutoEQSearchPanel: View {
     let profileManager: AutoEQProfileManager
     let favoriteIDs: Set<String>

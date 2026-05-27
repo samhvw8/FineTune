@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,8 +12,196 @@
 		7988AE522F1CC55900E6D086 /* fineTuneIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 7988AE512F1CC55900E6D086 /* fineTuneIcon.icon */; };
 		79B1000B2F35000000000002 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79B1000A2F35000000000001 /* IOBluetooth.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		79C80E5A2F12FF510021442B /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 79SNAP0012F0600000008D52A /* SnapshotTesting */; };
-		79FLUID0012F0600000008D52 /* FluidMenuBarExtra in Frameworks */ = {isa = PBXBuildFile; productRef = 79FLUID0022F0600000008D52 /* FluidMenuBarExtra */; };
 		D60793509DEB13A2E97D5EBF /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = C18F337FFBE2D40467959144 /* KeyboardShortcuts */; };
+		F5AE8547330EFD2C2F993F7D /* AutoEQFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70423162E08078204F5B1A6F /* AutoEQFetcher.swift */; };
+		80F436EE76DB480B52F52CEB /* AutoEQParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A4D47AE0F6B8856454D3B0 /* AutoEQParser.swift */; };
+		5F3F55C361372FF0A20C384C /* AutoEQProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE52C3111E8697C15197A6C /* AutoEQProcessor.swift */; };
+		C9BAEB978926818072F26888 /* AutoEQProfileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E8EB33AD0AB0550094B743 /* AutoEQProfileLoader.swift */; };
+		F800513E7A6236C4561350CB /* AutoEQProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124F7C38910E87361F14283D /* AutoEQProfileManager.swift */; };
+		2A437A3BEA06DF3AD5A9D6FD /* DDCController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EF56791CD67A9FA9B5A19 /* DDCController.swift */; };
+		0BB7136B357638524FBEB6A2 /* DDCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC725E64605A2ED35D988EC /* DDCService.swift */; };
+		2DD01C3F1E88DB3FB38C77E2 /* BiquadMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF01F17BCE3C3974B92349B /* BiquadMath.swift */; };
+		604CFF3913121882208AC32E /* BiquadProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652329B1031C0B9508016AE /* BiquadProcessor.swift */; };
+		29E0717E2D1D649E766BE202 /* EQProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E08ED794EDE01B97014A1B /* EQProcessor.swift */; };
+		3FB13AB4B7F9F6EECA5B6897 /* AudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB826588987D6C28CF8B776 /* AudioEngine.swift */; };
+		5969F145514FB573F188CBC9 /* CrashGuard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDA9BD48ADA17CCBDF39951 /* CrashGuard.swift */; };
+		2AA2749150F130712137D4E3 /* CrossfadeOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909AD571066806D4AB715804 /* CrossfadeOrchestrator.swift */; };
+		B8A9855BD876B827222B1BB0 /* CrossfadeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F424B9D9EE41BCE034810E41 /* CrossfadeState.swift */; };
+		E0064CF6EA89797F31BA5F02 /* EchoTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8A91ADB0209A2224E5E19A /* EchoTracker.swift */; };
+		4E6731EEE2A9B467F84B6ECF /* OrphanedTapCleanup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A2C942B911A141BDEB3661 /* OrphanedTapCleanup.swift */; };
+		D4CCAD75308F812874D68453 /* ProcessTapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07645143028DCF116557847A /* ProcessTapController.swift */; };
+		C30B1154B39598C0DD87B7FB /* ProcessTapControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92567DE6D00898EADAB45AA /* ProcessTapControlling.swift */; };
+		A78A882EE6EBD1331AFB3BA0 /* SoftLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C36AF7BA6AF8EA24A0CB67E /* SoftLimiter.swift */; };
+		F0C0D95FFB9D2814BEFB2ECF /* TapResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A11D3405C79554A55D51BD7 /* TapResources.swift */; };
+		38E3B8B30669A9CF7DCB58ED /* AudioDeviceID+Classification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1CA51A2500BFD917CAD730 /* AudioDeviceID+Classification.swift */; };
+		5A2C255D072E42325202F61B /* AudioDeviceID+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256AC4A607D10B40C65F1D69 /* AudioDeviceID+Info.swift */; };
+		EC1DDCD9260CA1EBEFE77660 /* AudioDeviceID+Inspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5DFAF27FF862C2EC81A88F /* AudioDeviceID+Inspector.swift */; };
+		0127CDFD7E8AE4A144A2E0A0 /* AudioDeviceID+Streams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DC4F2D362995991105503 /* AudioDeviceID+Streams.swift */; };
+		5DC91EC3A5DF2CEB3F7B079F /* AudioDeviceID+Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98EDEE2C12B3FDB5BD22A3 /* AudioDeviceID+Volume.swift */; };
+		A8CA29B489123683C94E960D /* AudioObjectID+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C74C66CA3D0960674F8BD4 /* AudioObjectID+Properties.swift */; };
+		55D585B13A7331FF021F5195 /* AudioObjectID+Readiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F5FC5F41E2CEC19CDED266 /* AudioObjectID+Readiness.swift */; };
+		4133FFC79ABEFCF3E0B6789D /* AudioObjectID+System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361BC2F668EA68AB36F90BEF /* AudioObjectID+System.swift */; };
+		C87AE81A53A63C939783965C /* AccessibilityPermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE13727DA85DE6F2E9A4ACD /* AccessibilityPermissionService.swift */; };
+		E7A8DDEF80E27E6C8E57F6D3 /* MediaKeyEventDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996398BFC5A55D67F12F7D12 /* MediaKeyEventDecoder.swift */; };
+		0E5B16F9338B0A07A3BBCD53 /* MediaKeyMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209B27084E6B22B2CF1B76E /* MediaKeyMonitor.swift */; };
+		DB96B1239B3485CEC035C51E /* MediaKeyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7817441A37A7E42BA808B2 /* MediaKeyStatus.swift */; };
+		0EEDE06BFF69A12DA27E8724 /* PopupVisibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA9785A6AC542F1317AC89 /* PopupVisibilityService.swift */; };
+		22015D5C7E772A50A4E4519A /* GainComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC53EB89AFE4289686DB3AB /* GainComputer.swift */; };
+		CC8D0D30DE61FAE67A0AA202 /* GainSmoother.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB7DB77E359170537906345 /* GainSmoother.swift */; };
+		1F1C24194C9575848B31BDE6 /* ISO226Contours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D3E07ED4420C317C1E475B /* ISO226Contours.swift */; };
+		7A89F2ED745537508F5BBF68 /* KWeightingFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7962C1D60DC6AC753C2B2E0F /* KWeightingFilter.swift */; };
+		47626656337217C943CEA371 /* LoudnessCompensator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076AEFE4E86D5EFDD17B49DD /* LoudnessCompensator.swift */; };
+		0C992B491D2DB3EB1AF749BD /* LoudnessDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63685DC6B5E2E177B39AA8E /* LoudnessDetector.swift */; };
+		3A34D3624B814B3EA6772AF8 /* LoudnessEqualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63488E304A7B0A289DDE1473 /* LoudnessEqualizer.swift */; };
+		FA7090375CAB4BFBDCE41B6B /* LoudnessEqualizerMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B013F33E5AAD2C95B5FC0FC2 /* LoudnessEqualizerMath.swift */; };
+		4BE2A04C10287C71700D3E98 /* LoudnessEqualizerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FD50E957D81A149F222D90 /* LoudnessEqualizerSettings.swift */; };
+		C412650C7017D4CEC9F1031A /* AudioDeviceMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E2354A548A1F8B4AE10830 /* AudioDeviceMonitor.swift */; };
+		843391E67BEE94E7892F6255 /* AudioDeviceProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE57355FF1FCA0DBC12D12 /* AudioDeviceProviding.swift */; };
+		FE6EBABFE6D287512F0CB67C /* AudioProcessMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B73E92CCFCB365D8272EFD /* AudioProcessMonitor.swift */; };
+		13ECC7A78ED52F305B76EAD4 /* AudioProcessMonitoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9360106AB9F161932C7562D4 /* AudioProcessMonitoring.swift */; };
+		F1F06619A337566EB587F767 /* BluetoothDeviceMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6089B15C11BA9911DE4BE0B /* BluetoothDeviceMonitor.swift */; };
+		8A9E9FE88727A5BC82D56B25 /* DeviceVolumeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC3B518FB790B74748E3761 /* DeviceVolumeMonitor.swift */; };
+		30EBD09E45BBB534271DBBD5 /* DeviceVolumeProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4653BB600415DF33303431 /* DeviceVolumeProviding.swift */; };
+		76F400D7F4806FADE1E5CD58 /* AudioRecordingPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8979A61F7A10D3201104C8FF /* AudioRecordingPermission.swift */; };
+		AD1CB79E1C66FD28B630B291 /* AudioScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC778E7993B4EB49FE3CA15 /* AudioScope.swift */; };
+		B0D702160A1775351811B0C7 /* BiquadProcessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE398D53F1972D1758507D /* BiquadProcessable.swift */; };
+		4B2228F6C46B4470AB5C7520 /* TransportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3C51FE2C910A77BB735ED3 /* TransportType.swift */; };
+		E5B6E07FF6C01B831826F480 /* FineTuneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101539CB5F8E8ED23C0FAF63 /* FineTuneApp.swift */; };
+		BBE8361027E72A4749F26AC4 /* AudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A713B06D78841A30C674657 /* AudioApp.swift */; };
+		E40B1C81280E0E08C41AEA8A /* AudioDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82380435297ECF871CBEBB72 /* AudioDevice.swift */; };
+		0FE21F3E3F331C3DB42B6226 /* AutoEQProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6EAF3B30751995EADA78F /* AutoEQProfile.swift */; };
+		18A603D4A3EB3C5872C79FB2 /* BoostLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ABE8413C88B5FD6C1D238 /* BoostLevel.swift */; };
+		A090AF3ED8E7362AD0D259A4 /* DisplayableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903EF3C5E54A78736E494AD3 /* DisplayableApp.swift */; };
+		20F6F279F6B09E3F5A8B4030 /* EQPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192613FE76AFB0EC68B61D29 /* EQPreset.swift */; };
+		36BA55A2C0CAE14FF1F00F1C /* EQSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA21676EB2B6B3E8E9CEC79 /* EQSettings.swift */; };
+		D73603908AEB040A5D0FCF93 /* PairedBluetoothDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D2C10A398415F125C8EA63 /* PairedBluetoothDevice.swift */; };
+		B049EA8A7874C3E4B72E655F /* UserEQPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA8AEC9D6B7BBCE75E7635B /* UserEQPreset.swift */; };
+		4E803AA7E0B7104E126AB80D /* VolumeMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3980CE175A6BB3AE2B1B378 /* VolumeMapping.swift */; };
+		92DCE83CE36CC786445949E2 /* VolumeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B1F59D5B9C37C5FE1BA2B /* VolumeState.swift */; };
+		1D8397B35F62600E621AFE00 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A209AF9009539ED62F47857 /* SettingsManager.swift */; };
+		0748493DFD8A10B9569FEB23 /* MenuBarPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188040418BDE6CB30691D78C /* MenuBarPopupController.swift */; };
+		78A295A1594EB19708C85956 /* ShortcutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58CE8F985133F473018942 /* ShortcutAction.swift */; };
+		A7E536344411D305A8E7BE2B /* ShortcutCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3A2D217A06BE949C37CBDC /* ShortcutCodable.swift */; };
+		57563FF59454944A7A4C746F /* ShortcutsRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3FB1BA590E217DC113665C /* ShortcutsRegistry.swift */; };
+		FCD09D26ABC962A5B15D188E /* TargetAppResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB22CA1D3F6A13CC53321C4 /* TargetAppResolver.swift */; };
+		2664EE181AD9A2238E0880EA /* DeviceIconCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F987EA24E686E5760007A342 /* DeviceIconCache.swift */; };
+		F5156CEBA7D38C85156D26AB /* ProcessNameLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A1EC92610177884097228 /* ProcessNameLookup.swift */; };
+		751E910475079B06F8CD15C5 /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36139EAA999E444501D456A /* URLHandler.swift */; };
+		FF7CCF9E909D07FA76FD2A3F /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68A5C6CBDDAF5ED09B37605 /* UpdateManager.swift */; };
+		DB5B0FB8F57301B00373CCCC /* AutoEQPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FDA142D82DCF3645ACED23 /* AutoEQPicker.swift */; };
+		967F36DCDA51C9A43C2C7893 /* AutoEQSearchPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBA999A6A23CE28A08BC2EE /* AutoEQSearchPanel.swift */; };
+		9540F320726E64E42148BE7A /* BoostChevrons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD3B4EE726629C711AD3A28 /* BoostChevrons.swift */; };
+		1969797FD747B9D253AFBD51 /* ClickOutsideCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB632A7092BE9AC7972699 /* ClickOutsideCoordinator.swift */; };
+		AC860D4E2633200171E97900 /* DeviceBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4589581946DF6C0B8B3C746A /* DeviceBadge.swift */; };
+		C2616FE94AAEBCA6E5493521 /* DevicePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA90373D64C1B85091567C30 /* DevicePicker.swift */; };
+		9B43FA698F3196AFCA474F99 /* DropdownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946050788EDC1C16FB63DFD3 /* DropdownMenu.swift */; };
+		73AFEFD7AFB308726E198617 /* EQPresetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5A65460CF413F0037C661B /* EQPresetPicker.swift */; };
+		510C98D0423425FFCC313FCA /* EditablePercentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141850B4DA8758248D4A7ADE /* EditablePercentage.swift */; };
+		F542D0B9888A46B55B493ECA /* ExpandableGlassRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504D3681300A3FB469E581DF /* ExpandableGlassRow.swift */; };
+		B7F009B2F6470C6B71A70D47 /* LiquidGlassSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E5FF41F67D26A7C763FB72 /* LiquidGlassSlider.swift */; };
+		8E611C70FF5A626BFF23913F /* ModeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B0A26C3D00F8D0F7A2BA3D /* ModeToggle.swift */; };
+		64DC733DC3058329FECCAFC0 /* MouseInsideModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B84B0E5EA7B16CEE070622 /* MouseInsideModifier.swift */; };
+		BA65F02564621464FCBE559D /* MuteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11DC1EA4DD6F5C91DFE3BFA /* MuteButton.swift */; };
+		60E26DDD9BAB601C21D6BD6F /* PermissionBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6076972795171A7C6DAFB828 /* PermissionBannerView.swift */; };
+		34FE97381AC4A8DF5E53C2F8 /* PopoverHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726D73174A672E28DCB5B043 /* PopoverHost.swift */; };
+		09E1DC528C4F17ABD2FA9124 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FE63CE10CC9EFC8F2D7FD8 /* RadioButton.swift */; };
+		B2A7C14BECB3AD418458F224 /* ScrollWheelStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57189B05BAE052D118058F8C /* ScrollWheelStep.swift */; };
+		9F754612E081D4E71509CFBE /* ScrollWheelStepModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650ED990E34A1F3EAD065236 /* ScrollWheelStepModifier.swift */; };
+		40C728D7DA039ED39C57CB01 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3501C67F154895E55ED8987 /* SectionHeader.swift */; };
+		FA9FB3383F9DD078DAF29589 /* VUMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FB50118BDB5AD8DDE9D0B /* VUMeter.swift */; };
+		973DBFB58BB41744F2C80A90 /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F16C42634C16525FF25D4 /* DesignTokens.swift */; };
+		32B111428F6BCB69722F208C /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D99175DA277A6B4B72A38 /* ViewModifiers.swift */; };
+		C118CCF8B8D190FB4BD80023 /* VisualEffectBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F8FB0DB019D094BCB9438 /* VisualEffectBackground.swift */; };
+		5A7CDB00A3853166059C34C1 /* WindowAppearanceBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B66540027222E1A6A59A077 /* WindowAppearanceBridge.swift */; };
+		C0990312BE50CDA27B6B6416 /* WindowTitleBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB731FAD35AA8DFA407C899 /* WindowTitleBridge.swift */; };
+		813362DFBD659129B83FAB0A /* EQPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6962538A07DB0C9410C98E0 /* EQPanelView.swift */; };
+		929058C66CDF8F3040713320 /* EQSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9440CFF4890068E1CBB4E50E /* EQSliderView.swift */; };
+		1475A1C42B3AFB4B2735AE26 /* ClassicStyleHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4485395ECC28BBB518D58E57 /* ClassicStyleHUD.swift */; };
+		C119C301394F6A052D0278B9 /* HUDWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB147B852F3B5E33FC74F65 /* HUDWindowController.swift */; };
+		15026DD895A0181528A90B4E /* TahoeStyleHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B3363E3C59AA7C7847A1B6 /* TahoeStyleHUD.swift */; };
+		B4A33BB6D7EB631C07087657 /* MenuBarIconCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2CC593680E1F5B447E2368 /* MenuBarIconCoordinator.swift */; };
+		80893397DCC4F817AAA7279D /* MenuBarIconImage+NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D3CF897954CF45F2C3E983 /* MenuBarIconImage+NSImage.swift */; };
+		6AB291238A46DB4E0AEF1B5F /* MenuBarIconState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D9F39077901DCEABD1DBE2 /* MenuBarIconState.swift */; };
+		FD078B3B75935838A1F974A9 /* PopupKeyboardNavModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4745B47AD58686AA5474D07D /* PopupKeyboardNavModel.swift */; };
+		A51907998158759893992F7D /* MenuBarPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A29A17CFA13464332A0C73F /* MenuBarPopupView.swift */; };
+		B19A567DF9F8F039DECD3B33 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2ACF6A046DAF9FA846255 /* MockData.swift */; };
+		D6B582ABCE39715AD150F55C /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FFAEA2993AADCE53D4801C /* PreviewContainer.swift */; };
+		A061AD8A64B168A2101F6527 /* AppEditRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAA5D4AF04BE6A4351E4EC /* AppEditRow.swift */; };
+		E7AB341C51656DE417E00E25 /* AppRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3F697597D6707231C10029 /* AppRow.swift */; };
+		A59C07B7074DB3E317D31735 /* AppRowControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2712B70728C4990AC738A485 /* AppRowControls.swift */; };
+		A204A87BEF45B25E1D35E471 /* AppRowWithLevelPolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C958935A477344487BF75E33 /* AppRowWithLevelPolling.swift */; };
+		5698B7E3CFBF220C7186A793 /* DeviceEditRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49069D4BE00B8314F2348939 /* DeviceEditRow.swift */; };
+		1665439D2344C2CDA87503B6 /* DeviceInspectorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE873762D01A5627798C6CA0 /* DeviceInspectorInfo.swift */; };
+		75E3667A99EA4DD454869568 /* DeviceInspectorInfoGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00309F8FA2D59D53E06BD21F /* DeviceInspectorInfoGrid.swift */; };
+		874911F63FCCAEE6FE267F5B /* DeviceInspectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE10E652554900C6A390E5B8 /* DeviceInspectorViewModel.swift */; };
+		6C55F45CCDA03DB2C63A26E2 /* DeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA67A6AE9D9D9A55CB0E3D4B /* DeviceRow.swift */; };
+		5F995341E81A0723A45157A6 /* InactiveAppRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258F7FFE7EE2C9DA71AC7587 /* InactiveAppRow.swift */; };
+		B6817F7EA81AC1774E21721C /* InputDeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D22C7E130234AF6528A891 /* InputDeviceRow.swift */; };
+		803FA5A677FB06E18C0112F7 /* PairedDeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45027723948BD78902F6B2 /* PairedDeviceRow.swift */; };
+		F4FB261BEDB1FD50AA1D508C /* AboutLinkChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C7DE4B35E80994797EE17 /* AboutLinkChip.swift */; };
+		5C2AF20A08A1CA44DDC59BF9 /* AccessibilityPromptStrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFED1491F39A81CA9192E2CC /* AccessibilityPromptStrip.swift */; };
+		DDED79312C8DE32508496161 /* HUDStyleSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D5C1353788CB2452A936F /* HUDStyleSegmentedControl.swift */; };
+		CB5FD5E721EBC64300740C6C /* IconStyleSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B17E4C3975B35D7619392F /* IconStyleSegmentedControl.swift */; };
+		06EFFB7390F2C7E130315C7C /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41CF6374527145AB71C902 /* SettingsRow.swift */; };
+		48CD6C422524EDC5264D2B8B /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A7CF5627B820F6313227DA /* SettingsSection.swift */; };
+		AC8AEFACB4A08C069C5AF778 /* SystemSoundsDevicePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D43EB24F49DE3A32491A9A4 /* SystemSoundsDevicePicker.swift */; };
+		21CC18A58C88E1AAD8BCE510 /* ThemeTilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00C5B41BEA89766E075A1FF /* ThemeTilePicker.swift */; };
+		AA8667D4F0F86DBE7A5F1183 /* VolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEA62ACB1AB7F231F4A8281 /* VolumeSlider.swift */; };
+		0F3368F84CCEE521BE6AA898 /* MediaKeyOfflineCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE28D244A247A564A01708 /* MediaKeyOfflineCard.swift */; };
+		6DD587CEC259C001E587A2CC /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6713396ACB46D27228DAB50 /* SettingsRootView.swift */; };
+		8DDD677AF838C8848F274109 /* AboutTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF131456BA2FF168F5C823B /* AboutTab.swift */; };
+		3249127186694BF65E2BE4E0 /* AudioTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F764F20D59438E82CB4198 /* AudioTab.swift */; };
+		2C137FE624C88D93323B552D /* GeneralTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FB1E5AC0B4EFFE9766F487 /* GeneralTab.swift */; };
+		063F845AB1BB9C2C20A4AAE8 /* ShortcutsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B816C8844167D53EBB7DA9 /* ShortcutsTab.swift */; };
+		3C3B2519D1549D9C7AD5D904 /* UpdatesTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2636AC25EC34F011E703A9D /* UpdatesTab.swift */; };
+		129933D89E65291831F28423 /* DeviceDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C94027C731631F7049606 /* DeviceDetailSheet.swift */; };
+		69AC2E2A6B8A709B5063D604 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F856E678440C02C9000A8390 /* Assets.xcassets */; };
+		DB29D9A96C3BC47EE3FFCB6F /* AppSettingsCustomShortcutsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD94051BD5290F910E8F0E3 /* AppSettingsCustomShortcutsTests.swift */; };
+		4AF65F5568EB4BD49682D6FF /* AppearancePreferenceCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB501458A30FC46FCCCEC5B5 /* AppearancePreferenceCodableTests.swift */; };
+		82955927E5919E2B3086149C /* AppearancePreferenceMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C29FAB87C1144B031FE5F52 /* AppearancePreferenceMappingTests.swift */; };
+		30FD1C9BCCFA7C02A64455F4 /* AudioDeviceInspectorPropertiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9931FE686BE710516185633 /* AudioDeviceInspectorPropertiesTests.swift */; };
+		C5E504832DADF494F5C347D7 /* AudioEngineToggleMuteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F4C8519021B2F30663F30 /* AudioEngineToggleMuteTests.swift */; };
+		A321B195E0772D52EB068D29 /* BiquadMathAdversarialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7146A42A309ABC0FA05BA6 /* BiquadMathAdversarialTests.swift */; };
+		B2EA1A7E47CE64C3F21F801B /* BiquadMathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D4099B018D13A2F7D652A /* BiquadMathTests.swift */; };
+		523687701FB6CF4FB4D9E991 /* BiquadProcessorSignalAdversarialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE397719EA030F4258A8E /* BiquadProcessorSignalAdversarialTests.swift */; };
+		0F5CA66966810D0B79FA10FA /* BiquadProcessorSignalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E512CF775D37A3DA7EB5C47 /* BiquadProcessorSignalTests.swift */; };
+		51DAF63265C4BD983EBEE7BC /* CrossfadeStateAdversarialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE95A8B085351020672E87EF /* CrossfadeStateAdversarialTests.swift */; };
+		5302DB3033306C637BF2714E /* DesignTokensDynamicResolutionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E7742B7A6E4A834CB1821D /* DesignTokensDynamicResolutionTests.swift */; };
+		CD255D91D142D623DE15B157 /* DesignTokensTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF811554393D8D870E913B32 /* DesignTokensTests.swift */; };
+		72932BFF0330C412D11B4C92 /* DeviceDetailSheetToggleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7121960B1B72D946B0DE73 /* DeviceDetailSheetToggleTests.swift */; };
+		12B2CA09B379746D48843569 /* DeviceInspectorInfoGridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68E1CA426BF02F95E1CAEAA /* DeviceInspectorInfoGridTests.swift */; };
+		4A7A820F641C5551F155281D /* DeviceVolumeTierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB9906EF587F140C6ECED2 /* DeviceVolumeTierTests.swift */; };
+		F96AEB5E7DDFF3D46E7BF7F1 /* EQPresetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5CE5DA56530423AF4CEA4 /* EQPresetTests.swift */; };
+		FFB9F444BD053790BBBB2FFA /* HUDDeviceNameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A59E6C3CEF67F7D81EBC79 /* HUDDeviceNameTests.swift */; };
+		5EC4B1416BDA0BC19532A528 /* HUDPopupParityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3C22E8F87D250FAA92A6EE /* HUDPopupParityTests.swift */; };
+		F35F2207D217A28F5B008980 /* HUDStyleCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23419429C5E18D893040D4F /* HUDStyleCodableTests.swift */; };
+		E4ACC3ACF5F941A45A02574D /* HUDThresholdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7743B821A28449B47D07E7 /* HUDThresholdTests.swift */; };
+		336A5B38B3FDA6AA77FB2688 /* HUDWindowControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AD0C592E747CD7F6280127 /* HUDWindowControllerTests.swift */; };
+		F348A07451A017F5620F0CCB /* IOKitMediaKeyDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1535FBDFBBB2AA121C7544F /* IOKitMediaKeyDecoderTests.swift */; };
+		2DAC37C1E60625A96650424D /* ISO226ContoursTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B1F09B385518619E11F717 /* ISO226ContoursTests.swift */; };
+		1F674D8B12AEBEF128D8C5FA /* LoudnessEqualizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BD196335B04E02BFE0436F /* LoudnessEqualizerTests.swift */; };
+		315362147CAEB32212BD7D5B /* MediaKeyDecoderFailOpenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE5914C2AD49AB19B73DA6 /* MediaKeyDecoderFailOpenTests.swift */; };
+		DB42505895571041B66576BD /* MediaKeyMonitorHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368D529030E904776BC5EE5 /* MediaKeyMonitorHandlerTests.swift */; };
+		73B50F283B134FC47B40FC9E /* MediaKeyMonitorLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD1E23F80DA650B002D9265 /* MediaKeyMonitorLifecycleTests.swift */; };
+		5891DEEDDF1895E85E34B369 /* MediaKeyTapDisabledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2124F34A14A9461B3B6D2EF /* MediaKeyTapDisabledTests.swift */; };
+		B44F494150B4E956BDCFCD62 /* MenuBarIconStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19E8DD6AC4A6EA12DBA81B2 /* MenuBarIconStateTests.swift */; };
+		61B7822258EA2A233BF6EAC1 /* MenuBarPopupControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54CCAB38681D33FC234E39B /* MenuBarPopupControllerTests.swift */; };
+		0D93AB12F1257E3C8EA2B1F7 /* MenuBarPopupSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE1D364F8FA99FBF16A3E35 /* MenuBarPopupSizeTests.swift */; };
+		2EAC1BAC98D325BE41822022 /* MuteButtonColorInvariantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926CCA0C7CEBCAB6095BA9F4 /* MuteButtonColorInvariantTests.swift */; };
+		9DC41BCF1151C258C65200E2 /* PopupKeyboardNavModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10B1AFEADBD8C901229AD8F /* PopupKeyboardNavModelTests.swift */; };
+		96F24D799FE10117EED71D25 /* ProcessingPipelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791C304920E864A775416F9 /* ProcessingPipelineTests.swift */; };
+		0BCF9250A49BA5226F6B746D /* ScrollWheelStepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893559E512B595A4EEDC85D4 /* ScrollWheelStepTests.swift */; };
+		3A408BB43EBA532B2FA05541 /* SettingsManagerAppSettingsBindingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8106495853C84ED667DF9EE /* SettingsManagerAppSettingsBindingTests.swift */; };
+		4ABFCB2902DD353CCE18239A /* SettingsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B1B8A8012BC1ED0A340FEB /* SettingsManagerTests.swift */; };
+		DDA1DF90790C63B365A68607 /* ShortcutCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C60AD8CECFD9D74AA2DB21D /* ShortcutCodableTests.swift */; };
+		5FC14FBBE9171E1E0C442E4F /* ShortcutsRegistryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD33C41BA309EEB189851751 /* ShortcutsRegistryTests.swift */; };
+		DE07AC500BC39B2D95730D9F /* SoftLimiterAdversarialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82498A0BA2DF47752AE2FCCC /* SoftLimiterAdversarialTests.swift */; };
+		6B61C345A8006A06934FB910 /* TargetAppResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F012D7432E17D8E01A315DE /* TargetAppResolverTests.swift */; };
+		14F34EAF856F35E66BEC4CD4 /* UserEQPresetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5FCB40CF8DB4D875C9D2B3 /* UserEQPresetTests.swift */; };
+		A9F276FB154376D08D38DC0D /* VolumeMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2FC0D25462B54CDAF2A6FE /* VolumeMappingTests.swift */; };
+		4274C51597DCCFA84257CA6B /* media-key-events.json in Resources */ = {isa = PBXBuildFile; fileRef = 990F1C65E8297174D9AB007C /* media-key-events.json */; };
+		F888F281440FB2D47D515812 /* settings-v10.json in Resources */ = {isa = PBXBuildFile; fileRef = DE4CE603D706D876BD538E64 /* settings-v10.json */; };
+		C2D14886DF82546D18AC42AF /* settings-v11.json in Resources */ = {isa = PBXBuildFile; fileRef = B232A9DE4AFFA1F8B4951BA8 /* settings-v11.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,26 +226,200 @@
 		79A607AF2F05C9E00008D52A /* FineTune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FineTune.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79A607BC2F05C9E10008D52A /* FineTuneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FineTuneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79A607C62F05C9E10008D52A /* FineTuneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FineTuneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		79B1000A2F35000000000001 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = System/Library/Frameworks/IOBluetooth.framework; sourceTree = SDKROOT; };
+		79B1000A2F35000000000001 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = "System/Library/Frameworks/IOBluetooth.framework"; sourceTree = SDKROOT; };
+		F856E678440C02C9000A8390 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E0F55EDB7447330DF0BD970E /* FineTune.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FineTune.entitlements; sourceTree = "<group>"; };
+		101539CB5F8E8ED23C0FAF63 /* FineTuneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineTuneApp.swift; sourceTree = "<group>"; };
+		5BFC87957D54039DC7D27285 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70423162E08078204F5B1A6F /* AutoEQFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoEQFetcher.swift; sourceTree = "<group>"; };
+		C7A4D47AE0F6B8856454D3B0 /* AutoEQParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoEQParser.swift; sourceTree = "<group>"; };
+		BAE52C3111E8697C15197A6C /* AutoEQProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoEQProcessor.swift; sourceTree = "<group>"; };
+		95E8EB33AD0AB0550094B743 /* AutoEQProfileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoEQProfileLoader.swift; sourceTree = "<group>"; };
+		124F7C38910E87361F14283D /* AutoEQProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoEQProfileManager.swift; sourceTree = "<group>"; };
+		D86EF56791CD67A9FA9B5A19 /* DDCController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDCController.swift; sourceTree = "<group>"; };
+		0CC725E64605A2ED35D988EC /* DDCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDCService.swift; sourceTree = "<group>"; };
+		4BF01F17BCE3C3974B92349B /* BiquadMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiquadMath.swift; sourceTree = "<group>"; };
+		7652329B1031C0B9508016AE /* BiquadProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiquadProcessor.swift; sourceTree = "<group>"; };
+		F2E08ED794EDE01B97014A1B /* EQProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQProcessor.swift; sourceTree = "<group>"; };
+		5AB826588987D6C28CF8B776 /* AudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngine.swift; sourceTree = "<group>"; };
+		6BDA9BD48ADA17CCBDF39951 /* CrashGuard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashGuard.swift; sourceTree = "<group>"; };
+		909AD571066806D4AB715804 /* CrossfadeOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossfadeOrchestrator.swift; sourceTree = "<group>"; };
+		F424B9D9EE41BCE034810E41 /* CrossfadeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossfadeState.swift; sourceTree = "<group>"; };
+		0F8A91ADB0209A2224E5E19A /* EchoTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoTracker.swift; sourceTree = "<group>"; };
+		54A2C942B911A141BDEB3661 /* OrphanedTapCleanup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrphanedTapCleanup.swift; sourceTree = "<group>"; };
+		07645143028DCF116557847A /* ProcessTapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessTapController.swift; sourceTree = "<group>"; };
+		C92567DE6D00898EADAB45AA /* ProcessTapControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessTapControlling.swift; sourceTree = "<group>"; };
+		5C36AF7BA6AF8EA24A0CB67E /* SoftLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftLimiter.swift; sourceTree = "<group>"; };
+		3A11D3405C79554A55D51BD7 /* TapResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapResources.swift; sourceTree = "<group>"; };
+		2D1CA51A2500BFD917CAD730 /* AudioDeviceID+Classification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudioDeviceID+Classification.swift"; sourceTree = "<group>"; };
+		256AC4A607D10B40C65F1D69 /* AudioDeviceID+Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudioDeviceID+Info.swift"; sourceTree = "<group>"; };
+		EB5DFAF27FF862C2EC81A88F /* AudioDeviceID+Inspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudioDeviceID+Inspector.swift"; sourceTree = "<group>"; };
+		428DC4F2D362995991105503 /* AudioDeviceID+Streams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudioDeviceID+Streams.swift"; sourceTree = "<group>"; };
+		1D98EDEE2C12B3FDB5BD22A3 /* AudioDeviceID+Volume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudioDeviceID+Volume.swift"; sourceTree = "<group>"; };
+		F5C74C66CA3D0960674F8BD4 /* AudioObjectID+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudioObjectID+Properties.swift"; sourceTree = "<group>"; };
+		D6F5FC5F41E2CEC19CDED266 /* AudioObjectID+Readiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudioObjectID+Readiness.swift"; sourceTree = "<group>"; };
+		361BC2F668EA68AB36F90BEF /* AudioObjectID+System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudioObjectID+System.swift"; sourceTree = "<group>"; };
+		DBE13727DA85DE6F2E9A4ACD /* AccessibilityPermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityPermissionService.swift; sourceTree = "<group>"; };
+		996398BFC5A55D67F12F7D12 /* MediaKeyEventDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKeyEventDecoder.swift; sourceTree = "<group>"; };
+		5209B27084E6B22B2CF1B76E /* MediaKeyMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKeyMonitor.swift; sourceTree = "<group>"; };
+		7D7817441A37A7E42BA808B2 /* MediaKeyStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKeyStatus.swift; sourceTree = "<group>"; };
+		54EA9785A6AC542F1317AC89 /* PopupVisibilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupVisibilityService.swift; sourceTree = "<group>"; };
+		FBC53EB89AFE4289686DB3AB /* GainComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GainComputer.swift; sourceTree = "<group>"; };
+		CDB7DB77E359170537906345 /* GainSmoother.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GainSmoother.swift; sourceTree = "<group>"; };
+		35D3E07ED4420C317C1E475B /* ISO226Contours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO226Contours.swift; sourceTree = "<group>"; };
+		7962C1D60DC6AC753C2B2E0F /* KWeightingFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KWeightingFilter.swift; sourceTree = "<group>"; };
+		076AEFE4E86D5EFDD17B49DD /* LoudnessCompensator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessCompensator.swift; sourceTree = "<group>"; };
+		F63685DC6B5E2E177B39AA8E /* LoudnessDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessDetector.swift; sourceTree = "<group>"; };
+		63488E304A7B0A289DDE1473 /* LoudnessEqualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessEqualizer.swift; sourceTree = "<group>"; };
+		B013F33E5AAD2C95B5FC0FC2 /* LoudnessEqualizerMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessEqualizerMath.swift; sourceTree = "<group>"; };
+		05FD50E957D81A149F222D90 /* LoudnessEqualizerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessEqualizerSettings.swift; sourceTree = "<group>"; };
+		D9E2354A548A1F8B4AE10830 /* AudioDeviceMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceMonitor.swift; sourceTree = "<group>"; };
+		84CE57355FF1FCA0DBC12D12 /* AudioDeviceProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceProviding.swift; sourceTree = "<group>"; };
+		D7B73E92CCFCB365D8272EFD /* AudioProcessMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioProcessMonitor.swift; sourceTree = "<group>"; };
+		9360106AB9F161932C7562D4 /* AudioProcessMonitoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioProcessMonitoring.swift; sourceTree = "<group>"; };
+		F6089B15C11BA9911DE4BE0B /* BluetoothDeviceMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDeviceMonitor.swift; sourceTree = "<group>"; };
+		1FC3B518FB790B74748E3761 /* DeviceVolumeMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceVolumeMonitor.swift; sourceTree = "<group>"; };
+		2D4653BB600415DF33303431 /* DeviceVolumeProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceVolumeProviding.swift; sourceTree = "<group>"; };
+		8979A61F7A10D3201104C8FF /* AudioRecordingPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordingPermission.swift; sourceTree = "<group>"; };
+		2DC778E7993B4EB49FE3CA15 /* AudioScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioScope.swift; sourceTree = "<group>"; };
+		5ECE398D53F1972D1758507D /* BiquadProcessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiquadProcessable.swift; sourceTree = "<group>"; };
+		7C3C51FE2C910A77BB735ED3 /* TransportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportType.swift; sourceTree = "<group>"; };
+		9A713B06D78841A30C674657 /* AudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioApp.swift; sourceTree = "<group>"; };
+		82380435297ECF871CBEBB72 /* AudioDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDevice.swift; sourceTree = "<group>"; };
+		3EA6EAF3B30751995EADA78F /* AutoEQProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoEQProfile.swift; sourceTree = "<group>"; };
+		E47ABE8413C88B5FD6C1D238 /* BoostLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostLevel.swift; sourceTree = "<group>"; };
+		903EF3C5E54A78736E494AD3 /* DisplayableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayableApp.swift; sourceTree = "<group>"; };
+		192613FE76AFB0EC68B61D29 /* EQPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQPreset.swift; sourceTree = "<group>"; };
+		EEA21676EB2B6B3E8E9CEC79 /* EQSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQSettings.swift; sourceTree = "<group>"; };
+		77D2C10A398415F125C8EA63 /* PairedBluetoothDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairedBluetoothDevice.swift; sourceTree = "<group>"; };
+		7BA8AEC9D6B7BBCE75E7635B /* UserEQPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEQPreset.swift; sourceTree = "<group>"; };
+		F3980CE175A6BB3AE2B1B378 /* VolumeMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeMapping.swift; sourceTree = "<group>"; };
+		8A1B1F59D5B9C37C5FE1BA2B /* VolumeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeState.swift; sourceTree = "<group>"; };
+		6A209AF9009539ED62F47857 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		188040418BDE6CB30691D78C /* MenuBarPopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarPopupController.swift; sourceTree = "<group>"; };
+		DD58CE8F985133F473018942 /* ShortcutAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutAction.swift; sourceTree = "<group>"; };
+		6E3A2D217A06BE949C37CBDC /* ShortcutCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutCodable.swift; sourceTree = "<group>"; };
+		7A3FB1BA590E217DC113665C /* ShortcutsRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsRegistry.swift; sourceTree = "<group>"; };
+		3AB22CA1D3F6A13CC53321C4 /* TargetAppResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetAppResolver.swift; sourceTree = "<group>"; };
+		F987EA24E686E5760007A342 /* DeviceIconCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceIconCache.swift; sourceTree = "<group>"; };
+		5A0A1EC92610177884097228 /* ProcessNameLookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessNameLookup.swift; sourceTree = "<group>"; };
+		B36139EAA999E444501D456A /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
+		E68A5C6CBDDAF5ED09B37605 /* UpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateManager.swift; sourceTree = "<group>"; };
+		F6962538A07DB0C9410C98E0 /* EQPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQPanelView.swift; sourceTree = "<group>"; };
+		9440CFF4890068E1CBB4E50E /* EQSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQSliderView.swift; sourceTree = "<group>"; };
+		9A29A17CFA13464332A0C73F /* MenuBarPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarPopupView.swift; sourceTree = "<group>"; };
+		45FDA142D82DCF3645ACED23 /* AutoEQPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoEQPicker.swift; sourceTree = "<group>"; };
+		6BBA999A6A23CE28A08BC2EE /* AutoEQSearchPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoEQSearchPanel.swift; sourceTree = "<group>"; };
+		7CD3B4EE726629C711AD3A28 /* BoostChevrons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostChevrons.swift; sourceTree = "<group>"; };
+		F9FB632A7092BE9AC7972699 /* ClickOutsideCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickOutsideCoordinator.swift; sourceTree = "<group>"; };
+		4589581946DF6C0B8B3C746A /* DeviceBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBadge.swift; sourceTree = "<group>"; };
+		AA90373D64C1B85091567C30 /* DevicePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicePicker.swift; sourceTree = "<group>"; };
+		946050788EDC1C16FB63DFD3 /* DropdownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownMenu.swift; sourceTree = "<group>"; };
+		2C5A65460CF413F0037C661B /* EQPresetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQPresetPicker.swift; sourceTree = "<group>"; };
+		141850B4DA8758248D4A7ADE /* EditablePercentage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditablePercentage.swift; sourceTree = "<group>"; };
+		504D3681300A3FB469E581DF /* ExpandableGlassRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableGlassRow.swift; sourceTree = "<group>"; };
+		A9E5FF41F67D26A7C763FB72 /* LiquidGlassSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidGlassSlider.swift; sourceTree = "<group>"; };
+		24B0A26C3D00F8D0F7A2BA3D /* ModeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeToggle.swift; sourceTree = "<group>"; };
+		75B84B0E5EA7B16CEE070622 /* MouseInsideModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseInsideModifier.swift; sourceTree = "<group>"; };
+		A11DC1EA4DD6F5C91DFE3BFA /* MuteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuteButton.swift; sourceTree = "<group>"; };
+		6076972795171A7C6DAFB828 /* PermissionBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionBannerView.swift; sourceTree = "<group>"; };
+		726D73174A672E28DCB5B043 /* PopoverHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverHost.swift; sourceTree = "<group>"; };
+		B1FE63CE10CC9EFC8F2D7FD8 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		57189B05BAE052D118058F8C /* ScrollWheelStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollWheelStep.swift; sourceTree = "<group>"; };
+		650ED990E34A1F3EAD065236 /* ScrollWheelStepModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollWheelStepModifier.swift; sourceTree = "<group>"; };
+		C3501C67F154895E55ED8987 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		CE2FB50118BDB5AD8DDE9D0B /* VUMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VUMeter.swift; sourceTree = "<group>"; };
+		C56F16C42634C16525FF25D4 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
+		A23D99175DA277A6B4B72A38 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		B41F8FB0DB019D094BCB9438 /* VisualEffectBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBackground.swift; sourceTree = "<group>"; };
+		8B66540027222E1A6A59A077 /* WindowAppearanceBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAppearanceBridge.swift; sourceTree = "<group>"; };
+		DBB731FAD35AA8DFA407C899 /* WindowTitleBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTitleBridge.swift; sourceTree = "<group>"; };
+		4485395ECC28BBB518D58E57 /* ClassicStyleHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicStyleHUD.swift; sourceTree = "<group>"; };
+		7EB147B852F3B5E33FC74F65 /* HUDWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDWindowController.swift; sourceTree = "<group>"; };
+		41B3363E3C59AA7C7847A1B6 /* TahoeStyleHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TahoeStyleHUD.swift; sourceTree = "<group>"; };
+		DB2CC593680E1F5B447E2368 /* MenuBarIconCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarIconCoordinator.swift; sourceTree = "<group>"; };
+		C5D3CF897954CF45F2C3E983 /* MenuBarIconImage+NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuBarIconImage+NSImage.swift"; sourceTree = "<group>"; };
+		46D9F39077901DCEABD1DBE2 /* MenuBarIconState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarIconState.swift; sourceTree = "<group>"; };
+		4745B47AD58686AA5474D07D /* PopupKeyboardNavModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupKeyboardNavModel.swift; sourceTree = "<group>"; };
+		01E2ACF6A046DAF9FA846255 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		B9FFAEA2993AADCE53D4801C /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
+		4DFAA5D4AF04BE6A4351E4EC /* AppEditRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEditRow.swift; sourceTree = "<group>"; };
+		1F3F697597D6707231C10029 /* AppRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRow.swift; sourceTree = "<group>"; };
+		2712B70728C4990AC738A485 /* AppRowControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRowControls.swift; sourceTree = "<group>"; };
+		C958935A477344487BF75E33 /* AppRowWithLevelPolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRowWithLevelPolling.swift; sourceTree = "<group>"; };
+		49069D4BE00B8314F2348939 /* DeviceEditRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceEditRow.swift; sourceTree = "<group>"; };
+		EA67A6AE9D9D9A55CB0E3D4B /* DeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRow.swift; sourceTree = "<group>"; };
+		258F7FFE7EE2C9DA71AC7587 /* InactiveAppRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveAppRow.swift; sourceTree = "<group>"; };
+		15D22C7E130234AF6528A891 /* InputDeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDeviceRow.swift; sourceTree = "<group>"; };
+		EC45027723948BD78902F6B2 /* PairedDeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairedDeviceRow.swift; sourceTree = "<group>"; };
+		DE873762D01A5627798C6CA0 /* DeviceInspectorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInspectorInfo.swift; sourceTree = "<group>"; };
+		00309F8FA2D59D53E06BD21F /* DeviceInspectorInfoGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInspectorInfoGrid.swift; sourceTree = "<group>"; };
+		FE10E652554900C6A390E5B8 /* DeviceInspectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInspectorViewModel.swift; sourceTree = "<group>"; };
+		67CE28D244A247A564A01708 /* MediaKeyOfflineCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKeyOfflineCard.swift; sourceTree = "<group>"; };
+		F6713396ACB46D27228DAB50 /* SettingsRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRootView.swift; sourceTree = "<group>"; };
+		220C7DE4B35E80994797EE17 /* AboutLinkChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutLinkChip.swift; sourceTree = "<group>"; };
+		AFED1491F39A81CA9192E2CC /* AccessibilityPromptStrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityPromptStrip.swift; sourceTree = "<group>"; };
+		F68D5C1353788CB2452A936F /* HUDStyleSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDStyleSegmentedControl.swift; sourceTree = "<group>"; };
+		72B17E4C3975B35D7619392F /* IconStyleSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconStyleSegmentedControl.swift; sourceTree = "<group>"; };
+		0E41CF6374527145AB71C902 /* SettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
+		17A7CF5627B820F6313227DA /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		7D43EB24F49DE3A32491A9A4 /* SystemSoundsDevicePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSoundsDevicePicker.swift; sourceTree = "<group>"; };
+		E00C5B41BEA89766E075A1FF /* ThemeTilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTilePicker.swift; sourceTree = "<group>"; };
+		DFEA62ACB1AB7F231F4A8281 /* VolumeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSlider.swift; sourceTree = "<group>"; };
+		8BF131456BA2FF168F5C823B /* AboutTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTab.swift; sourceTree = "<group>"; };
+		A1F764F20D59438E82CB4198 /* AudioTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTab.swift; sourceTree = "<group>"; };
+		E5FB1E5AC0B4EFFE9766F487 /* GeneralTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTab.swift; sourceTree = "<group>"; };
+		73B816C8844167D53EBB7DA9 /* ShortcutsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsTab.swift; sourceTree = "<group>"; };
+		B2636AC25EC34F011E703A9D /* UpdatesTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesTab.swift; sourceTree = "<group>"; };
+		055C94027C731631F7049606 /* DeviceDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailSheet.swift; sourceTree = "<group>"; };
+		AAD94051BD5290F910E8F0E3 /* AppSettingsCustomShortcutsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsCustomShortcutsTests.swift; sourceTree = "<group>"; };
+		FB501458A30FC46FCCCEC5B5 /* AppearancePreferenceCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearancePreferenceCodableTests.swift; sourceTree = "<group>"; };
+		0C29FAB87C1144B031FE5F52 /* AppearancePreferenceMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearancePreferenceMappingTests.swift; sourceTree = "<group>"; };
+		E9931FE686BE710516185633 /* AudioDeviceInspectorPropertiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceInspectorPropertiesTests.swift; sourceTree = "<group>"; };
+		4B7F4C8519021B2F30663F30 /* AudioEngineToggleMuteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngineToggleMuteTests.swift; sourceTree = "<group>"; };
+		AC7146A42A309ABC0FA05BA6 /* BiquadMathAdversarialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiquadMathAdversarialTests.swift; sourceTree = "<group>"; };
+		478D4099B018D13A2F7D652A /* BiquadMathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiquadMathTests.swift; sourceTree = "<group>"; };
+		38DAE397719EA030F4258A8E /* BiquadProcessorSignalAdversarialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiquadProcessorSignalAdversarialTests.swift; sourceTree = "<group>"; };
+		8E512CF775D37A3DA7EB5C47 /* BiquadProcessorSignalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiquadProcessorSignalTests.swift; sourceTree = "<group>"; };
+		BE95A8B085351020672E87EF /* CrossfadeStateAdversarialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossfadeStateAdversarialTests.swift; sourceTree = "<group>"; };
+		F6E7742B7A6E4A834CB1821D /* DesignTokensDynamicResolutionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokensDynamicResolutionTests.swift; sourceTree = "<group>"; };
+		EF811554393D8D870E913B32 /* DesignTokensTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokensTests.swift; sourceTree = "<group>"; };
+		1A7121960B1B72D946B0DE73 /* DeviceDetailSheetToggleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailSheetToggleTests.swift; sourceTree = "<group>"; };
+		D68E1CA426BF02F95E1CAEAA /* DeviceInspectorInfoGridTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInspectorInfoGridTests.swift; sourceTree = "<group>"; };
+		5AEB9906EF587F140C6ECED2 /* DeviceVolumeTierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceVolumeTierTests.swift; sourceTree = "<group>"; };
+		03D5CE5DA56530423AF4CEA4 /* EQPresetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQPresetTests.swift; sourceTree = "<group>"; };
+		C0A59E6C3CEF67F7D81EBC79 /* HUDDeviceNameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDDeviceNameTests.swift; sourceTree = "<group>"; };
+		3E3C22E8F87D250FAA92A6EE /* HUDPopupParityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDPopupParityTests.swift; sourceTree = "<group>"; };
+		E23419429C5E18D893040D4F /* HUDStyleCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDStyleCodableTests.swift; sourceTree = "<group>"; };
+		7B7743B821A28449B47D07E7 /* HUDThresholdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDThresholdTests.swift; sourceTree = "<group>"; };
+		69AD0C592E747CD7F6280127 /* HUDWindowControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDWindowControllerTests.swift; sourceTree = "<group>"; };
+		F1535FBDFBBB2AA121C7544F /* IOKitMediaKeyDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOKitMediaKeyDecoderTests.swift; sourceTree = "<group>"; };
+		A9B1F09B385518619E11F717 /* ISO226ContoursTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO226ContoursTests.swift; sourceTree = "<group>"; };
+		95BD196335B04E02BFE0436F /* LoudnessEqualizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessEqualizerTests.swift; sourceTree = "<group>"; };
+		00CE5914C2AD49AB19B73DA6 /* MediaKeyDecoderFailOpenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKeyDecoderFailOpenTests.swift; sourceTree = "<group>"; };
+		5368D529030E904776BC5EE5 /* MediaKeyMonitorHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKeyMonitorHandlerTests.swift; sourceTree = "<group>"; };
+		6BD1E23F80DA650B002D9265 /* MediaKeyMonitorLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKeyMonitorLifecycleTests.swift; sourceTree = "<group>"; };
+		E2124F34A14A9461B3B6D2EF /* MediaKeyTapDisabledTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKeyTapDisabledTests.swift; sourceTree = "<group>"; };
+		E19E8DD6AC4A6EA12DBA81B2 /* MenuBarIconStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarIconStateTests.swift; sourceTree = "<group>"; };
+		F54CCAB38681D33FC234E39B /* MenuBarPopupControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarPopupControllerTests.swift; sourceTree = "<group>"; };
+		6AE1D364F8FA99FBF16A3E35 /* MenuBarPopupSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarPopupSizeTests.swift; sourceTree = "<group>"; };
+		926CCA0C7CEBCAB6095BA9F4 /* MuteButtonColorInvariantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuteButtonColorInvariantTests.swift; sourceTree = "<group>"; };
+		E10B1AFEADBD8C901229AD8F /* PopupKeyboardNavModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupKeyboardNavModelTests.swift; sourceTree = "<group>"; };
+		4791C304920E864A775416F9 /* ProcessingPipelineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingPipelineTests.swift; sourceTree = "<group>"; };
+		893559E512B595A4EEDC85D4 /* ScrollWheelStepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollWheelStepTests.swift; sourceTree = "<group>"; };
+		C8106495853C84ED667DF9EE /* SettingsManagerAppSettingsBindingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManagerAppSettingsBindingTests.swift; sourceTree = "<group>"; };
+		19B1B8A8012BC1ED0A340FEB /* SettingsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManagerTests.swift; sourceTree = "<group>"; };
+		6C60AD8CECFD9D74AA2DB21D /* ShortcutCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutCodableTests.swift; sourceTree = "<group>"; };
+		BD33C41BA309EEB189851751 /* ShortcutsRegistryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsRegistryTests.swift; sourceTree = "<group>"; };
+		82498A0BA2DF47752AE2FCCC /* SoftLimiterAdversarialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftLimiterAdversarialTests.swift; sourceTree = "<group>"; };
+		2F012D7432E17D8E01A315DE /* TargetAppResolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetAppResolverTests.swift; sourceTree = "<group>"; };
+		6A5FCB40CF8DB4D875C9D2B3 /* UserEQPresetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEQPresetTests.swift; sourceTree = "<group>"; };
+		EB2FC0D25462B54CDAF2A6FE /* VolumeMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeMappingTests.swift; sourceTree = "<group>"; };
+		990F1C65E8297174D9AB007C /* media-key-events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "media-key-events.json"; sourceTree = "<group>"; };
+		DE4CE603D706D876BD538E64 /* settings-v10.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "settings-v10.json"; sourceTree = "<group>"; };
+		B232A9DE4AFFA1F8B4951BA8 /* settings-v11.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "settings-v11.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		79A607B12F05C9E00008D52A /* FineTune */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FineTune;
-			sourceTree = "<group>";
-		};
-		79A607BF2F05C9E10008D52A /* FineTuneTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FineTuneTests;
-			sourceTree = "<group>";
-		};
-		79A607C92F05C9E10008D52A /* FineTuneUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FineTuneUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		79A607AC2F05C9E00008D52A /* Frameworks */ = {
@@ -66,7 +428,6 @@
 			files = (
 				79B1000B2F35000000000002 /* IOBluetooth.framework in Frameworks */,
 				7980FFE92F261AA200AF5F85 /* Sparkle in Frameworks */,
-				79FLUID0012F0600000008D52 /* FluidMenuBarExtra in Frameworks */,
 				140F6FF7C7CD8F6C1D73121E /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,9 +462,9 @@
 		79A607A62F05C9E00008D52A = {
 			isa = PBXGroup;
 			children = (
-				79A607B12F05C9E00008D52A /* FineTune */,
-				79A607BF2F05C9E10008D52A /* FineTuneTests */,
-				79A607C92F05C9E10008D52A /* FineTuneUITests */,
+				DEC5B252AE74A54A7AE762D1 /* FineTune */,
+				02D2AF4BB35E527B47323FA3 /* FineTuneTests */,
+				C1A1219151BC0DA9EBA0D747 /* FineTuneUITests */,
 				79A607B02F05C9E00008D52A /* Products */,
 				7988AE512F1CC55900E6D086 /* fineTuneIcon.icon */,
 				795C94762F4FF3BC004F0492 /* Recovered References */,
@@ -118,6 +479,443 @@
 				79A607C62F05C9E10008D52A /* FineTuneUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DEC5B252AE74A54A7AE762D1 /* FineTune */ = {
+			isa = PBXGroup;
+			children = (
+				026A497BF80459466E2F4B86 /* Audio */,
+				BC4C8EB6C65DBF08E31D4DB9 /* Models */,
+				0D89FC8C2B035662E5843E58 /* Settings */,
+				524C603A29AD1CEE2BE8B9F5 /* Shortcuts */,
+				02FF2A9000EDED86E2769EF8 /* Utilities */,
+				3C94C2ED4EF4A0E9A0D841AF /* Views */,
+				F856E678440C02C9000A8390 /* Assets.xcassets */,
+				E0F55EDB7447330DF0BD970E /* FineTune.entitlements */,
+				101539CB5F8E8ED23C0FAF63 /* FineTuneApp.swift */,
+				5BFC87957D54039DC7D27285 /* Info.plist */,
+			);
+			path = FineTune;
+			sourceTree = "<group>";
+		};
+		026A497BF80459466E2F4B86 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				15A52CB0EEAA26F79FF5C7D2 /* AutoEQ */,
+				0BF66CA2DB5BF5B28246B880 /* DDC */,
+				98AFDC1E7141AE7F51606F08 /* EQ */,
+				721635C64A247AD8437B340D /* Engine */,
+				E9A130F96507598A1E358FFC /* Extensions */,
+				A1B02FEAF33E4D6AEC7BBCFE /* Keys */,
+				5F8690A4420ABB7117761471 /* Loudness */,
+				BE1F081F8BF34B0BDFF1EF49 /* Monitors */,
+				16A3B93F3370A16AA47C496A /* Permission */,
+				9CF0C6A08198F3DCB56D1984 /* Types */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		15A52CB0EEAA26F79FF5C7D2 /* AutoEQ */ = {
+			isa = PBXGroup;
+			children = (
+				70423162E08078204F5B1A6F /* AutoEQFetcher.swift */,
+				C7A4D47AE0F6B8856454D3B0 /* AutoEQParser.swift */,
+				BAE52C3111E8697C15197A6C /* AutoEQProcessor.swift */,
+				95E8EB33AD0AB0550094B743 /* AutoEQProfileLoader.swift */,
+				124F7C38910E87361F14283D /* AutoEQProfileManager.swift */,
+			);
+			path = AutoEQ;
+			sourceTree = "<group>";
+		};
+		0BF66CA2DB5BF5B28246B880 /* DDC */ = {
+			isa = PBXGroup;
+			children = (
+				D86EF56791CD67A9FA9B5A19 /* DDCController.swift */,
+				0CC725E64605A2ED35D988EC /* DDCService.swift */,
+			);
+			path = DDC;
+			sourceTree = "<group>";
+		};
+		98AFDC1E7141AE7F51606F08 /* EQ */ = {
+			isa = PBXGroup;
+			children = (
+				4BF01F17BCE3C3974B92349B /* BiquadMath.swift */,
+				7652329B1031C0B9508016AE /* BiquadProcessor.swift */,
+				F2E08ED794EDE01B97014A1B /* EQProcessor.swift */,
+			);
+			path = EQ;
+			sourceTree = "<group>";
+		};
+		721635C64A247AD8437B340D /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				5AB826588987D6C28CF8B776 /* AudioEngine.swift */,
+				6BDA9BD48ADA17CCBDF39951 /* CrashGuard.swift */,
+				909AD571066806D4AB715804 /* CrossfadeOrchestrator.swift */,
+				F424B9D9EE41BCE034810E41 /* CrossfadeState.swift */,
+				0F8A91ADB0209A2224E5E19A /* EchoTracker.swift */,
+				54A2C942B911A141BDEB3661 /* OrphanedTapCleanup.swift */,
+				07645143028DCF116557847A /* ProcessTapController.swift */,
+				C92567DE6D00898EADAB45AA /* ProcessTapControlling.swift */,
+				5C36AF7BA6AF8EA24A0CB67E /* SoftLimiter.swift */,
+				3A11D3405C79554A55D51BD7 /* TapResources.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		E9A130F96507598A1E358FFC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2D1CA51A2500BFD917CAD730 /* AudioDeviceID+Classification.swift */,
+				256AC4A607D10B40C65F1D69 /* AudioDeviceID+Info.swift */,
+				EB5DFAF27FF862C2EC81A88F /* AudioDeviceID+Inspector.swift */,
+				428DC4F2D362995991105503 /* AudioDeviceID+Streams.swift */,
+				1D98EDEE2C12B3FDB5BD22A3 /* AudioDeviceID+Volume.swift */,
+				F5C74C66CA3D0960674F8BD4 /* AudioObjectID+Properties.swift */,
+				D6F5FC5F41E2CEC19CDED266 /* AudioObjectID+Readiness.swift */,
+				361BC2F668EA68AB36F90BEF /* AudioObjectID+System.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A1B02FEAF33E4D6AEC7BBCFE /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				DBE13727DA85DE6F2E9A4ACD /* AccessibilityPermissionService.swift */,
+				996398BFC5A55D67F12F7D12 /* MediaKeyEventDecoder.swift */,
+				5209B27084E6B22B2CF1B76E /* MediaKeyMonitor.swift */,
+				7D7817441A37A7E42BA808B2 /* MediaKeyStatus.swift */,
+				54EA9785A6AC542F1317AC89 /* PopupVisibilityService.swift */,
+			);
+			path = Keys;
+			sourceTree = "<group>";
+		};
+		5F8690A4420ABB7117761471 /* Loudness */ = {
+			isa = PBXGroup;
+			children = (
+				FBC53EB89AFE4289686DB3AB /* GainComputer.swift */,
+				CDB7DB77E359170537906345 /* GainSmoother.swift */,
+				35D3E07ED4420C317C1E475B /* ISO226Contours.swift */,
+				7962C1D60DC6AC753C2B2E0F /* KWeightingFilter.swift */,
+				076AEFE4E86D5EFDD17B49DD /* LoudnessCompensator.swift */,
+				F63685DC6B5E2E177B39AA8E /* LoudnessDetector.swift */,
+				63488E304A7B0A289DDE1473 /* LoudnessEqualizer.swift */,
+				B013F33E5AAD2C95B5FC0FC2 /* LoudnessEqualizerMath.swift */,
+				05FD50E957D81A149F222D90 /* LoudnessEqualizerSettings.swift */,
+			);
+			path = Loudness;
+			sourceTree = "<group>";
+		};
+		BE1F081F8BF34B0BDFF1EF49 /* Monitors */ = {
+			isa = PBXGroup;
+			children = (
+				D9E2354A548A1F8B4AE10830 /* AudioDeviceMonitor.swift */,
+				84CE57355FF1FCA0DBC12D12 /* AudioDeviceProviding.swift */,
+				D7B73E92CCFCB365D8272EFD /* AudioProcessMonitor.swift */,
+				9360106AB9F161932C7562D4 /* AudioProcessMonitoring.swift */,
+				F6089B15C11BA9911DE4BE0B /* BluetoothDeviceMonitor.swift */,
+				1FC3B518FB790B74748E3761 /* DeviceVolumeMonitor.swift */,
+				2D4653BB600415DF33303431 /* DeviceVolumeProviding.swift */,
+			);
+			path = Monitors;
+			sourceTree = "<group>";
+		};
+		16A3B93F3370A16AA47C496A /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				8979A61F7A10D3201104C8FF /* AudioRecordingPermission.swift */,
+			);
+			path = Permission;
+			sourceTree = "<group>";
+		};
+		9CF0C6A08198F3DCB56D1984 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				2DC778E7993B4EB49FE3CA15 /* AudioScope.swift */,
+				5ECE398D53F1972D1758507D /* BiquadProcessable.swift */,
+				7C3C51FE2C910A77BB735ED3 /* TransportType.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		BC4C8EB6C65DBF08E31D4DB9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9A713B06D78841A30C674657 /* AudioApp.swift */,
+				82380435297ECF871CBEBB72 /* AudioDevice.swift */,
+				3EA6EAF3B30751995EADA78F /* AutoEQProfile.swift */,
+				E47ABE8413C88B5FD6C1D238 /* BoostLevel.swift */,
+				903EF3C5E54A78736E494AD3 /* DisplayableApp.swift */,
+				192613FE76AFB0EC68B61D29 /* EQPreset.swift */,
+				EEA21676EB2B6B3E8E9CEC79 /* EQSettings.swift */,
+				77D2C10A398415F125C8EA63 /* PairedBluetoothDevice.swift */,
+				7BA8AEC9D6B7BBCE75E7635B /* UserEQPreset.swift */,
+				F3980CE175A6BB3AE2B1B378 /* VolumeMapping.swift */,
+				8A1B1F59D5B9C37C5FE1BA2B /* VolumeState.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0D89FC8C2B035662E5843E58 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				6A209AF9009539ED62F47857 /* SettingsManager.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		524C603A29AD1CEE2BE8B9F5 /* Shortcuts */ = {
+			isa = PBXGroup;
+			children = (
+				188040418BDE6CB30691D78C /* MenuBarPopupController.swift */,
+				DD58CE8F985133F473018942 /* ShortcutAction.swift */,
+				6E3A2D217A06BE949C37CBDC /* ShortcutCodable.swift */,
+				7A3FB1BA590E217DC113665C /* ShortcutsRegistry.swift */,
+				3AB22CA1D3F6A13CC53321C4 /* TargetAppResolver.swift */,
+			);
+			path = Shortcuts;
+			sourceTree = "<group>";
+		};
+		02FF2A9000EDED86E2769EF8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F987EA24E686E5760007A342 /* DeviceIconCache.swift */,
+				5A0A1EC92610177884097228 /* ProcessNameLookup.swift */,
+				B36139EAA999E444501D456A /* URLHandler.swift */,
+				E68A5C6CBDDAF5ED09B37605 /* UpdateManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		3C94C2ED4EF4A0E9A0D841AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D062487AB67FE74C5E77D12C /* Components */,
+				80DE281D4BEFEEC24ADA89F4 /* DesignSystem */,
+				85F588B20A9D263C07EC0B0F /* HUD */,
+				E6A63E3F9DA1D7855145E390 /* MenuBar */,
+				66B4CD99B3E1785E94EE1C1F /* Previews */,
+				03C819F5B88F809CC056FC59 /* Rows */,
+				B897995D287685541E89E491 /* Settings */,
+				637E32317C3FDF1F7C927888 /* Sheets */,
+				F6962538A07DB0C9410C98E0 /* EQPanelView.swift */,
+				9440CFF4890068E1CBB4E50E /* EQSliderView.swift */,
+				9A29A17CFA13464332A0C73F /* MenuBarPopupView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D062487AB67FE74C5E77D12C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				45FDA142D82DCF3645ACED23 /* AutoEQPicker.swift */,
+				6BBA999A6A23CE28A08BC2EE /* AutoEQSearchPanel.swift */,
+				7CD3B4EE726629C711AD3A28 /* BoostChevrons.swift */,
+				F9FB632A7092BE9AC7972699 /* ClickOutsideCoordinator.swift */,
+				4589581946DF6C0B8B3C746A /* DeviceBadge.swift */,
+				AA90373D64C1B85091567C30 /* DevicePicker.swift */,
+				946050788EDC1C16FB63DFD3 /* DropdownMenu.swift */,
+				2C5A65460CF413F0037C661B /* EQPresetPicker.swift */,
+				141850B4DA8758248D4A7ADE /* EditablePercentage.swift */,
+				504D3681300A3FB469E581DF /* ExpandableGlassRow.swift */,
+				A9E5FF41F67D26A7C763FB72 /* LiquidGlassSlider.swift */,
+				24B0A26C3D00F8D0F7A2BA3D /* ModeToggle.swift */,
+				75B84B0E5EA7B16CEE070622 /* MouseInsideModifier.swift */,
+				A11DC1EA4DD6F5C91DFE3BFA /* MuteButton.swift */,
+				6076972795171A7C6DAFB828 /* PermissionBannerView.swift */,
+				726D73174A672E28DCB5B043 /* PopoverHost.swift */,
+				B1FE63CE10CC9EFC8F2D7FD8 /* RadioButton.swift */,
+				57189B05BAE052D118058F8C /* ScrollWheelStep.swift */,
+				650ED990E34A1F3EAD065236 /* ScrollWheelStepModifier.swift */,
+				C3501C67F154895E55ED8987 /* SectionHeader.swift */,
+				CE2FB50118BDB5AD8DDE9D0B /* VUMeter.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		80DE281D4BEFEEC24ADA89F4 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				C56F16C42634C16525FF25D4 /* DesignTokens.swift */,
+				A23D99175DA277A6B4B72A38 /* ViewModifiers.swift */,
+				B41F8FB0DB019D094BCB9438 /* VisualEffectBackground.swift */,
+				8B66540027222E1A6A59A077 /* WindowAppearanceBridge.swift */,
+				DBB731FAD35AA8DFA407C899 /* WindowTitleBridge.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		85F588B20A9D263C07EC0B0F /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				4485395ECC28BBB518D58E57 /* ClassicStyleHUD.swift */,
+				7EB147B852F3B5E33FC74F65 /* HUDWindowController.swift */,
+				41B3363E3C59AA7C7847A1B6 /* TahoeStyleHUD.swift */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+		E6A63E3F9DA1D7855145E390 /* MenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				DB2CC593680E1F5B447E2368 /* MenuBarIconCoordinator.swift */,
+				C5D3CF897954CF45F2C3E983 /* MenuBarIconImage+NSImage.swift */,
+				46D9F39077901DCEABD1DBE2 /* MenuBarIconState.swift */,
+				4745B47AD58686AA5474D07D /* PopupKeyboardNavModel.swift */,
+			);
+			path = MenuBar;
+			sourceTree = "<group>";
+		};
+		66B4CD99B3E1785E94EE1C1F /* Previews */ = {
+			isa = PBXGroup;
+			children = (
+				01E2ACF6A046DAF9FA846255 /* MockData.swift */,
+				B9FFAEA2993AADCE53D4801C /* PreviewContainer.swift */,
+			);
+			path = Previews;
+			sourceTree = "<group>";
+		};
+		03C819F5B88F809CC056FC59 /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				7E87B8652EA84AA63CCC0A06 /* DeviceInspector */,
+				4DFAA5D4AF04BE6A4351E4EC /* AppEditRow.swift */,
+				1F3F697597D6707231C10029 /* AppRow.swift */,
+				2712B70728C4990AC738A485 /* AppRowControls.swift */,
+				C958935A477344487BF75E33 /* AppRowWithLevelPolling.swift */,
+				49069D4BE00B8314F2348939 /* DeviceEditRow.swift */,
+				EA67A6AE9D9D9A55CB0E3D4B /* DeviceRow.swift */,
+				258F7FFE7EE2C9DA71AC7587 /* InactiveAppRow.swift */,
+				15D22C7E130234AF6528A891 /* InputDeviceRow.swift */,
+				EC45027723948BD78902F6B2 /* PairedDeviceRow.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		7E87B8652EA84AA63CCC0A06 /* DeviceInspector */ = {
+			isa = PBXGroup;
+			children = (
+				DE873762D01A5627798C6CA0 /* DeviceInspectorInfo.swift */,
+				00309F8FA2D59D53E06BD21F /* DeviceInspectorInfoGrid.swift */,
+				FE10E652554900C6A390E5B8 /* DeviceInspectorViewModel.swift */,
+			);
+			path = DeviceInspector;
+			sourceTree = "<group>";
+		};
+		B897995D287685541E89E491 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				021CF8AA7C62EF962A820B39 /* Components */,
+				06EF32BF49E96C4A8B5390AF /* Tabs */,
+				67CE28D244A247A564A01708 /* MediaKeyOfflineCard.swift */,
+				F6713396ACB46D27228DAB50 /* SettingsRootView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		021CF8AA7C62EF962A820B39 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				220C7DE4B35E80994797EE17 /* AboutLinkChip.swift */,
+				AFED1491F39A81CA9192E2CC /* AccessibilityPromptStrip.swift */,
+				F68D5C1353788CB2452A936F /* HUDStyleSegmentedControl.swift */,
+				72B17E4C3975B35D7619392F /* IconStyleSegmentedControl.swift */,
+				0E41CF6374527145AB71C902 /* SettingsRow.swift */,
+				17A7CF5627B820F6313227DA /* SettingsSection.swift */,
+				7D43EB24F49DE3A32491A9A4 /* SystemSoundsDevicePicker.swift */,
+				E00C5B41BEA89766E075A1FF /* ThemeTilePicker.swift */,
+				DFEA62ACB1AB7F231F4A8281 /* VolumeSlider.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		06EF32BF49E96C4A8B5390AF /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				8BF131456BA2FF168F5C823B /* AboutTab.swift */,
+				A1F764F20D59438E82CB4198 /* AudioTab.swift */,
+				E5FB1E5AC0B4EFFE9766F487 /* GeneralTab.swift */,
+				73B816C8844167D53EBB7DA9 /* ShortcutsTab.swift */,
+				B2636AC25EC34F011E703A9D /* UpdatesTab.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		637E32317C3FDF1F7C927888 /* Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				055C94027C731631F7049606 /* DeviceDetailSheet.swift */,
+			);
+			path = Sheets;
+			sourceTree = "<group>";
+		};
+		02D2AF4BB35E527B47323FA3 /* FineTuneTests */ = {
+			isa = PBXGroup;
+			children = (
+				D7127339ACE5AFF10FD3DEE5 /* Fixtures */,
+				AAD94051BD5290F910E8F0E3 /* AppSettingsCustomShortcutsTests.swift */,
+				FB501458A30FC46FCCCEC5B5 /* AppearancePreferenceCodableTests.swift */,
+				0C29FAB87C1144B031FE5F52 /* AppearancePreferenceMappingTests.swift */,
+				E9931FE686BE710516185633 /* AudioDeviceInspectorPropertiesTests.swift */,
+				4B7F4C8519021B2F30663F30 /* AudioEngineToggleMuteTests.swift */,
+				AC7146A42A309ABC0FA05BA6 /* BiquadMathAdversarialTests.swift */,
+				478D4099B018D13A2F7D652A /* BiquadMathTests.swift */,
+				38DAE397719EA030F4258A8E /* BiquadProcessorSignalAdversarialTests.swift */,
+				8E512CF775D37A3DA7EB5C47 /* BiquadProcessorSignalTests.swift */,
+				BE95A8B085351020672E87EF /* CrossfadeStateAdversarialTests.swift */,
+				F6E7742B7A6E4A834CB1821D /* DesignTokensDynamicResolutionTests.swift */,
+				EF811554393D8D870E913B32 /* DesignTokensTests.swift */,
+				1A7121960B1B72D946B0DE73 /* DeviceDetailSheetToggleTests.swift */,
+				D68E1CA426BF02F95E1CAEAA /* DeviceInspectorInfoGridTests.swift */,
+				5AEB9906EF587F140C6ECED2 /* DeviceVolumeTierTests.swift */,
+				03D5CE5DA56530423AF4CEA4 /* EQPresetTests.swift */,
+				C0A59E6C3CEF67F7D81EBC79 /* HUDDeviceNameTests.swift */,
+				3E3C22E8F87D250FAA92A6EE /* HUDPopupParityTests.swift */,
+				E23419429C5E18D893040D4F /* HUDStyleCodableTests.swift */,
+				7B7743B821A28449B47D07E7 /* HUDThresholdTests.swift */,
+				69AD0C592E747CD7F6280127 /* HUDWindowControllerTests.swift */,
+				F1535FBDFBBB2AA121C7544F /* IOKitMediaKeyDecoderTests.swift */,
+				A9B1F09B385518619E11F717 /* ISO226ContoursTests.swift */,
+				95BD196335B04E02BFE0436F /* LoudnessEqualizerTests.swift */,
+				00CE5914C2AD49AB19B73DA6 /* MediaKeyDecoderFailOpenTests.swift */,
+				5368D529030E904776BC5EE5 /* MediaKeyMonitorHandlerTests.swift */,
+				6BD1E23F80DA650B002D9265 /* MediaKeyMonitorLifecycleTests.swift */,
+				E2124F34A14A9461B3B6D2EF /* MediaKeyTapDisabledTests.swift */,
+				E19E8DD6AC4A6EA12DBA81B2 /* MenuBarIconStateTests.swift */,
+				F54CCAB38681D33FC234E39B /* MenuBarPopupControllerTests.swift */,
+				6AE1D364F8FA99FBF16A3E35 /* MenuBarPopupSizeTests.swift */,
+				926CCA0C7CEBCAB6095BA9F4 /* MuteButtonColorInvariantTests.swift */,
+				E10B1AFEADBD8C901229AD8F /* PopupKeyboardNavModelTests.swift */,
+				4791C304920E864A775416F9 /* ProcessingPipelineTests.swift */,
+				893559E512B595A4EEDC85D4 /* ScrollWheelStepTests.swift */,
+				C8106495853C84ED667DF9EE /* SettingsManagerAppSettingsBindingTests.swift */,
+				19B1B8A8012BC1ED0A340FEB /* SettingsManagerTests.swift */,
+				6C60AD8CECFD9D74AA2DB21D /* ShortcutCodableTests.swift */,
+				BD33C41BA309EEB189851751 /* ShortcutsRegistryTests.swift */,
+				82498A0BA2DF47752AE2FCCC /* SoftLimiterAdversarialTests.swift */,
+				2F012D7432E17D8E01A315DE /* TargetAppResolverTests.swift */,
+				6A5FCB40CF8DB4D875C9D2B3 /* UserEQPresetTests.swift */,
+				EB2FC0D25462B54CDAF2A6FE /* VolumeMappingTests.swift */,
+			);
+			path = FineTuneTests;
+			sourceTree = "<group>";
+		};
+		D7127339ACE5AFF10FD3DEE5 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				990F1C65E8297174D9AB007C /* media-key-events.json */,
+				DE4CE603D706D876BD538E64 /* settings-v10.json */,
+				B232A9DE4AFFA1F8B4951BA8 /* settings-v11.json */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		C1A1219151BC0DA9EBA0D747 /* FineTuneUITests */ = {
+			isa = PBXGroup;
+			children = (
+
+			);
+			path = FineTuneUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,12 +933,8 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				79A607B12F05C9E00008D52A /* FineTune */,
-			);
 			name = FineTune;
 			packageProductDependencies = (
-				79FLUID0022F0600000008D52 /* FluidMenuBarExtra */,
 				79SPARK012F0600000008D52 /* Sparkle */,
 				75DA616DEB24648C4BDE9092 /* KeyboardShortcuts */,
 			);
@@ -160,9 +954,6 @@
 			);
 			dependencies = (
 				79A607BE2F05C9E10008D52A /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				79A607BF2F05C9E10008D52A /* FineTuneTests */,
 			);
 			name = FineTuneTests;
 			packageProductDependencies = (
@@ -186,9 +977,6 @@
 			dependencies = (
 				79A607C82F05C9E10008D52A /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				79A607C92F05C9E10008D52A /* FineTuneUITests */,
-			);
 			name = FineTuneUITests;
 			productName = FineTuneUITests;
 			productReference = 79A607C62F05C9E10008D52A /* FineTuneUITests.xctest */;
@@ -201,18 +989,18 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2610;
-				LastUpgradeCheck = 2610;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					79A607AE2F05C9E00008D52A = {
-						CreatedOnToolsVersion = 26.1.1;
+						CreatedOnToolsVersion = 15.4;
 					};
 					79A607BB2F05C9E10008D52A = {
-						CreatedOnToolsVersion = 26.1.1;
+						CreatedOnToolsVersion = 15.4;
 						TestTargetID = 79A607AE2F05C9E00008D52A;
 					};
 					79A607C52F05C9E10008D52A = {
-						CreatedOnToolsVersion = 26.1.1;
+						CreatedOnToolsVersion = 15.4;
 						TestTargetID = 79A607AE2F05C9E00008D52A;
 					};
 				};
@@ -228,11 +1016,9 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				79SNAP0002F0600000008D52A /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
-				79FLUID0002F0600000008D52 /* XCRemoteSwiftPackageReference "FluidMenuBarExtra" */,
 				79SPARK002F0600000008D52 /* XCRemoteSwiftPackageReference "Sparkle" */,
 				25AD8733711702DDEA8EAD12 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 			);
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 79A607B02F05C9E00008D52A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -250,6 +1036,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7988AE522F1CC55900E6D086 /* fineTuneIcon.icon in Resources */,
+				69AC2E2A6B8A709B5063D604 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +1044,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4274C51597DCCFA84257CA6B /* media-key-events.json in Resources */,
+				F888F281440FB2D47D515812 /* settings-v10.json in Resources */,
+				C2D14886DF82546D18AC42AF /* settings-v11.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +1064,148 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5AE8547330EFD2C2F993F7D /* AutoEQFetcher.swift in Sources */,
+				80F436EE76DB480B52F52CEB /* AutoEQParser.swift in Sources */,
+				5F3F55C361372FF0A20C384C /* AutoEQProcessor.swift in Sources */,
+				C9BAEB978926818072F26888 /* AutoEQProfileLoader.swift in Sources */,
+				F800513E7A6236C4561350CB /* AutoEQProfileManager.swift in Sources */,
+				2A437A3BEA06DF3AD5A9D6FD /* DDCController.swift in Sources */,
+				0BB7136B357638524FBEB6A2 /* DDCService.swift in Sources */,
+				2DD01C3F1E88DB3FB38C77E2 /* BiquadMath.swift in Sources */,
+				604CFF3913121882208AC32E /* BiquadProcessor.swift in Sources */,
+				29E0717E2D1D649E766BE202 /* EQProcessor.swift in Sources */,
+				3FB13AB4B7F9F6EECA5B6897 /* AudioEngine.swift in Sources */,
+				5969F145514FB573F188CBC9 /* CrashGuard.swift in Sources */,
+				2AA2749150F130712137D4E3 /* CrossfadeOrchestrator.swift in Sources */,
+				B8A9855BD876B827222B1BB0 /* CrossfadeState.swift in Sources */,
+				E0064CF6EA89797F31BA5F02 /* EchoTracker.swift in Sources */,
+				4E6731EEE2A9B467F84B6ECF /* OrphanedTapCleanup.swift in Sources */,
+				D4CCAD75308F812874D68453 /* ProcessTapController.swift in Sources */,
+				C30B1154B39598C0DD87B7FB /* ProcessTapControlling.swift in Sources */,
+				A78A882EE6EBD1331AFB3BA0 /* SoftLimiter.swift in Sources */,
+				F0C0D95FFB9D2814BEFB2ECF /* TapResources.swift in Sources */,
+				38E3B8B30669A9CF7DCB58ED /* AudioDeviceID+Classification.swift in Sources */,
+				5A2C255D072E42325202F61B /* AudioDeviceID+Info.swift in Sources */,
+				EC1DDCD9260CA1EBEFE77660 /* AudioDeviceID+Inspector.swift in Sources */,
+				0127CDFD7E8AE4A144A2E0A0 /* AudioDeviceID+Streams.swift in Sources */,
+				5DC91EC3A5DF2CEB3F7B079F /* AudioDeviceID+Volume.swift in Sources */,
+				A8CA29B489123683C94E960D /* AudioObjectID+Properties.swift in Sources */,
+				55D585B13A7331FF021F5195 /* AudioObjectID+Readiness.swift in Sources */,
+				4133FFC79ABEFCF3E0B6789D /* AudioObjectID+System.swift in Sources */,
+				C87AE81A53A63C939783965C /* AccessibilityPermissionService.swift in Sources */,
+				E7A8DDEF80E27E6C8E57F6D3 /* MediaKeyEventDecoder.swift in Sources */,
+				0E5B16F9338B0A07A3BBCD53 /* MediaKeyMonitor.swift in Sources */,
+				DB96B1239B3485CEC035C51E /* MediaKeyStatus.swift in Sources */,
+				0EEDE06BFF69A12DA27E8724 /* PopupVisibilityService.swift in Sources */,
+				22015D5C7E772A50A4E4519A /* GainComputer.swift in Sources */,
+				CC8D0D30DE61FAE67A0AA202 /* GainSmoother.swift in Sources */,
+				1F1C24194C9575848B31BDE6 /* ISO226Contours.swift in Sources */,
+				7A89F2ED745537508F5BBF68 /* KWeightingFilter.swift in Sources */,
+				47626656337217C943CEA371 /* LoudnessCompensator.swift in Sources */,
+				0C992B491D2DB3EB1AF749BD /* LoudnessDetector.swift in Sources */,
+				3A34D3624B814B3EA6772AF8 /* LoudnessEqualizer.swift in Sources */,
+				FA7090375CAB4BFBDCE41B6B /* LoudnessEqualizerMath.swift in Sources */,
+				4BE2A04C10287C71700D3E98 /* LoudnessEqualizerSettings.swift in Sources */,
+				C412650C7017D4CEC9F1031A /* AudioDeviceMonitor.swift in Sources */,
+				843391E67BEE94E7892F6255 /* AudioDeviceProviding.swift in Sources */,
+				FE6EBABFE6D287512F0CB67C /* AudioProcessMonitor.swift in Sources */,
+				13ECC7A78ED52F305B76EAD4 /* AudioProcessMonitoring.swift in Sources */,
+				F1F06619A337566EB587F767 /* BluetoothDeviceMonitor.swift in Sources */,
+				8A9E9FE88727A5BC82D56B25 /* DeviceVolumeMonitor.swift in Sources */,
+				30EBD09E45BBB534271DBBD5 /* DeviceVolumeProviding.swift in Sources */,
+				76F400D7F4806FADE1E5CD58 /* AudioRecordingPermission.swift in Sources */,
+				AD1CB79E1C66FD28B630B291 /* AudioScope.swift in Sources */,
+				B0D702160A1775351811B0C7 /* BiquadProcessable.swift in Sources */,
+				4B2228F6C46B4470AB5C7520 /* TransportType.swift in Sources */,
+				E5B6E07FF6C01B831826F480 /* FineTuneApp.swift in Sources */,
+				BBE8361027E72A4749F26AC4 /* AudioApp.swift in Sources */,
+				E40B1C81280E0E08C41AEA8A /* AudioDevice.swift in Sources */,
+				0FE21F3E3F331C3DB42B6226 /* AutoEQProfile.swift in Sources */,
+				18A603D4A3EB3C5872C79FB2 /* BoostLevel.swift in Sources */,
+				A090AF3ED8E7362AD0D259A4 /* DisplayableApp.swift in Sources */,
+				20F6F279F6B09E3F5A8B4030 /* EQPreset.swift in Sources */,
+				36BA55A2C0CAE14FF1F00F1C /* EQSettings.swift in Sources */,
+				D73603908AEB040A5D0FCF93 /* PairedBluetoothDevice.swift in Sources */,
+				B049EA8A7874C3E4B72E655F /* UserEQPreset.swift in Sources */,
+				4E803AA7E0B7104E126AB80D /* VolumeMapping.swift in Sources */,
+				92DCE83CE36CC786445949E2 /* VolumeState.swift in Sources */,
+				1D8397B35F62600E621AFE00 /* SettingsManager.swift in Sources */,
+				0748493DFD8A10B9569FEB23 /* MenuBarPopupController.swift in Sources */,
+				78A295A1594EB19708C85956 /* ShortcutAction.swift in Sources */,
+				A7E536344411D305A8E7BE2B /* ShortcutCodable.swift in Sources */,
+				57563FF59454944A7A4C746F /* ShortcutsRegistry.swift in Sources */,
+				FCD09D26ABC962A5B15D188E /* TargetAppResolver.swift in Sources */,
+				2664EE181AD9A2238E0880EA /* DeviceIconCache.swift in Sources */,
+				F5156CEBA7D38C85156D26AB /* ProcessNameLookup.swift in Sources */,
+				751E910475079B06F8CD15C5 /* URLHandler.swift in Sources */,
+				FF7CCF9E909D07FA76FD2A3F /* UpdateManager.swift in Sources */,
+				DB5B0FB8F57301B00373CCCC /* AutoEQPicker.swift in Sources */,
+				967F36DCDA51C9A43C2C7893 /* AutoEQSearchPanel.swift in Sources */,
+				9540F320726E64E42148BE7A /* BoostChevrons.swift in Sources */,
+				1969797FD747B9D253AFBD51 /* ClickOutsideCoordinator.swift in Sources */,
+				AC860D4E2633200171E97900 /* DeviceBadge.swift in Sources */,
+				C2616FE94AAEBCA6E5493521 /* DevicePicker.swift in Sources */,
+				9B43FA698F3196AFCA474F99 /* DropdownMenu.swift in Sources */,
+				73AFEFD7AFB308726E198617 /* EQPresetPicker.swift in Sources */,
+				510C98D0423425FFCC313FCA /* EditablePercentage.swift in Sources */,
+				F542D0B9888A46B55B493ECA /* ExpandableGlassRow.swift in Sources */,
+				B7F009B2F6470C6B71A70D47 /* LiquidGlassSlider.swift in Sources */,
+				8E611C70FF5A626BFF23913F /* ModeToggle.swift in Sources */,
+				64DC733DC3058329FECCAFC0 /* MouseInsideModifier.swift in Sources */,
+				BA65F02564621464FCBE559D /* MuteButton.swift in Sources */,
+				60E26DDD9BAB601C21D6BD6F /* PermissionBannerView.swift in Sources */,
+				34FE97381AC4A8DF5E53C2F8 /* PopoverHost.swift in Sources */,
+				09E1DC528C4F17ABD2FA9124 /* RadioButton.swift in Sources */,
+				B2A7C14BECB3AD418458F224 /* ScrollWheelStep.swift in Sources */,
+				9F754612E081D4E71509CFBE /* ScrollWheelStepModifier.swift in Sources */,
+				40C728D7DA039ED39C57CB01 /* SectionHeader.swift in Sources */,
+				FA9FB3383F9DD078DAF29589 /* VUMeter.swift in Sources */,
+				973DBFB58BB41744F2C80A90 /* DesignTokens.swift in Sources */,
+				32B111428F6BCB69722F208C /* ViewModifiers.swift in Sources */,
+				C118CCF8B8D190FB4BD80023 /* VisualEffectBackground.swift in Sources */,
+				5A7CDB00A3853166059C34C1 /* WindowAppearanceBridge.swift in Sources */,
+				C0990312BE50CDA27B6B6416 /* WindowTitleBridge.swift in Sources */,
+				813362DFBD659129B83FAB0A /* EQPanelView.swift in Sources */,
+				929058C66CDF8F3040713320 /* EQSliderView.swift in Sources */,
+				1475A1C42B3AFB4B2735AE26 /* ClassicStyleHUD.swift in Sources */,
+				C119C301394F6A052D0278B9 /* HUDWindowController.swift in Sources */,
+				15026DD895A0181528A90B4E /* TahoeStyleHUD.swift in Sources */,
+				B4A33BB6D7EB631C07087657 /* MenuBarIconCoordinator.swift in Sources */,
+				80893397DCC4F817AAA7279D /* MenuBarIconImage+NSImage.swift in Sources */,
+				6AB291238A46DB4E0AEF1B5F /* MenuBarIconState.swift in Sources */,
+				FD078B3B75935838A1F974A9 /* PopupKeyboardNavModel.swift in Sources */,
+				A51907998158759893992F7D /* MenuBarPopupView.swift in Sources */,
+				B19A567DF9F8F039DECD3B33 /* MockData.swift in Sources */,
+				D6B582ABCE39715AD150F55C /* PreviewContainer.swift in Sources */,
+				A061AD8A64B168A2101F6527 /* AppEditRow.swift in Sources */,
+				E7AB341C51656DE417E00E25 /* AppRow.swift in Sources */,
+				A59C07B7074DB3E317D31735 /* AppRowControls.swift in Sources */,
+				A204A87BEF45B25E1D35E471 /* AppRowWithLevelPolling.swift in Sources */,
+				5698B7E3CFBF220C7186A793 /* DeviceEditRow.swift in Sources */,
+				1665439D2344C2CDA87503B6 /* DeviceInspectorInfo.swift in Sources */,
+				75E3667A99EA4DD454869568 /* DeviceInspectorInfoGrid.swift in Sources */,
+				874911F63FCCAEE6FE267F5B /* DeviceInspectorViewModel.swift in Sources */,
+				6C55F45CCDA03DB2C63A26E2 /* DeviceRow.swift in Sources */,
+				5F995341E81A0723A45157A6 /* InactiveAppRow.swift in Sources */,
+				B6817F7EA81AC1774E21721C /* InputDeviceRow.swift in Sources */,
+				803FA5A677FB06E18C0112F7 /* PairedDeviceRow.swift in Sources */,
+				F4FB261BEDB1FD50AA1D508C /* AboutLinkChip.swift in Sources */,
+				5C2AF20A08A1CA44DDC59BF9 /* AccessibilityPromptStrip.swift in Sources */,
+				DDED79312C8DE32508496161 /* HUDStyleSegmentedControl.swift in Sources */,
+				CB5FD5E721EBC64300740C6C /* IconStyleSegmentedControl.swift in Sources */,
+				06EFFB7390F2C7E130315C7C /* SettingsRow.swift in Sources */,
+				48CD6C422524EDC5264D2B8B /* SettingsSection.swift in Sources */,
+				AC8AEFACB4A08C069C5AF778 /* SystemSoundsDevicePicker.swift in Sources */,
+				21CC18A58C88E1AAD8BCE510 /* ThemeTilePicker.swift in Sources */,
+				AA8667D4F0F86DBE7A5F1183 /* VolumeSlider.swift in Sources */,
+				0F3368F84CCEE521BE6AA898 /* MediaKeyOfflineCard.swift in Sources */,
+				6DD587CEC259C001E587A2CC /* SettingsRootView.swift in Sources */,
+				8DDD677AF838C8848F274109 /* AboutTab.swift in Sources */,
+				3249127186694BF65E2BE4E0 /* AudioTab.swift in Sources */,
+				2C137FE624C88D93323B552D /* GeneralTab.swift in Sources */,
+				063F845AB1BB9C2C20A4AAE8 /* ShortcutsTab.swift in Sources */,
+				3C3B2519D1549D9C7AD5D904 /* UpdatesTab.swift in Sources */,
+				129933D89E65291831F28423 /* DeviceDetailSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +1213,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB29D9A96C3BC47EE3FFCB6F /* AppSettingsCustomShortcutsTests.swift in Sources */,
+				4AF65F5568EB4BD49682D6FF /* AppearancePreferenceCodableTests.swift in Sources */,
+				82955927E5919E2B3086149C /* AppearancePreferenceMappingTests.swift in Sources */,
+				30FD1C9BCCFA7C02A64455F4 /* AudioDeviceInspectorPropertiesTests.swift in Sources */,
+				C5E504832DADF494F5C347D7 /* AudioEngineToggleMuteTests.swift in Sources */,
+				A321B195E0772D52EB068D29 /* BiquadMathAdversarialTests.swift in Sources */,
+				B2EA1A7E47CE64C3F21F801B /* BiquadMathTests.swift in Sources */,
+				523687701FB6CF4FB4D9E991 /* BiquadProcessorSignalAdversarialTests.swift in Sources */,
+				0F5CA66966810D0B79FA10FA /* BiquadProcessorSignalTests.swift in Sources */,
+				51DAF63265C4BD983EBEE7BC /* CrossfadeStateAdversarialTests.swift in Sources */,
+				5302DB3033306C637BF2714E /* DesignTokensDynamicResolutionTests.swift in Sources */,
+				CD255D91D142D623DE15B157 /* DesignTokensTests.swift in Sources */,
+				72932BFF0330C412D11B4C92 /* DeviceDetailSheetToggleTests.swift in Sources */,
+				12B2CA09B379746D48843569 /* DeviceInspectorInfoGridTests.swift in Sources */,
+				4A7A820F641C5551F155281D /* DeviceVolumeTierTests.swift in Sources */,
+				F96AEB5E7DDFF3D46E7BF7F1 /* EQPresetTests.swift in Sources */,
+				FFB9F444BD053790BBBB2FFA /* HUDDeviceNameTests.swift in Sources */,
+				5EC4B1416BDA0BC19532A528 /* HUDPopupParityTests.swift in Sources */,
+				F35F2207D217A28F5B008980 /* HUDStyleCodableTests.swift in Sources */,
+				E4ACC3ACF5F941A45A02574D /* HUDThresholdTests.swift in Sources */,
+				336A5B38B3FDA6AA77FB2688 /* HUDWindowControllerTests.swift in Sources */,
+				F348A07451A017F5620F0CCB /* IOKitMediaKeyDecoderTests.swift in Sources */,
+				2DAC37C1E60625A96650424D /* ISO226ContoursTests.swift in Sources */,
+				1F674D8B12AEBEF128D8C5FA /* LoudnessEqualizerTests.swift in Sources */,
+				315362147CAEB32212BD7D5B /* MediaKeyDecoderFailOpenTests.swift in Sources */,
+				DB42505895571041B66576BD /* MediaKeyMonitorHandlerTests.swift in Sources */,
+				73B50F283B134FC47B40FC9E /* MediaKeyMonitorLifecycleTests.swift in Sources */,
+				5891DEEDDF1895E85E34B369 /* MediaKeyTapDisabledTests.swift in Sources */,
+				B44F494150B4E956BDCFCD62 /* MenuBarIconStateTests.swift in Sources */,
+				61B7822258EA2A233BF6EAC1 /* MenuBarPopupControllerTests.swift in Sources */,
+				0D93AB12F1257E3C8EA2B1F7 /* MenuBarPopupSizeTests.swift in Sources */,
+				2EAC1BAC98D325BE41822022 /* MuteButtonColorInvariantTests.swift in Sources */,
+				9DC41BCF1151C258C65200E2 /* PopupKeyboardNavModelTests.swift in Sources */,
+				96F24D799FE10117EED71D25 /* ProcessingPipelineTests.swift in Sources */,
+				0BCF9250A49BA5226F6B746D /* ScrollWheelStepTests.swift in Sources */,
+				3A408BB43EBA532B2FA05541 /* SettingsManagerAppSettingsBindingTests.swift in Sources */,
+				4ABFCB2902DD353CCE18239A /* SettingsManagerTests.swift in Sources */,
+				DDA1DF90790C63B365A68607 /* ShortcutCodableTests.swift in Sources */,
+				5FC14FBBE9171E1E0C442E4F /* ShortcutsRegistryTests.swift in Sources */,
+				DE07AC500BC39B2D95730D9F /* SoftLimiterAdversarialTests.swift in Sources */,
+				6B61C345A8006A06934FB910 /* TargetAppResolverTests.swift in Sources */,
+				14F34EAF856F35E66BEC4CD4 /* UserEQPresetTests.swift in Sources */,
+				A9F276FB154376D08D38DC0D /* VolumeMappingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +1263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,10 +1434,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -497,10 +1470,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -518,9 +1488,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.finetuneapp.FineTuneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FineTune.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FineTune";
 			};
@@ -539,9 +1507,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.finetuneapp.FineTuneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FineTune.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FineTune";
 			};
@@ -558,9 +1524,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.finetuneapp.FineTuneUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = FineTune;
 			};
@@ -577,9 +1541,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.finetuneapp.FineTuneUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = FineTune;
 			};
@@ -635,14 +1597,6 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		79FLUID0002F0600000008D52 /* XCRemoteSwiftPackageReference "FluidMenuBarExtra" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wadetregaskis/FluidMenuBarExtra";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		79SNAP0002F0600000008D52A /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
@@ -666,11 +1620,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 25AD8733711702DDEA8EAD12 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
 			productName = KeyboardShortcuts;
-		};
-		79FLUID0022F0600000008D52 /* FluidMenuBarExtra */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 79FLUID0002F0600000008D52 /* XCRemoteSwiftPackageReference "FluidMenuBarExtra" */;
-			productName = FluidMenuBarExtra;
 		};
 		79SNAP0012F0600000008D52A /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;

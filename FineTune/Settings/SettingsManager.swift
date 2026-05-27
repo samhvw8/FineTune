@@ -128,8 +128,8 @@ struct PopupDimensions: Equatable {
     let width: CGFloat
     let contentPadding: CGFloat
     /// Ceiling on the scrollable body. Sized to stay within a 13" MacBook Air's
-    /// usable height after the menu bar, since FluidMenuBarExtra does not clamp
-    /// the popup against `screen.visibleFrame` vertically.
+    /// usable height after the menu bar, since the popup panel does not clamp
+    /// against `screen.visibleFrame` vertically.
     let maxContentHeight: CGFloat
 }
 

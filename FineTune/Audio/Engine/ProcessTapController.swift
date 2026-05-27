@@ -21,6 +21,7 @@ import os
 // The nonisolated(unsafe) annotation marks variables that cross the thread boundary.
 // Aligned Float32/Bool/Int reads/writes are atomic on Apple ARM64/x86-64.
 
+@MainActor
 final class ProcessTapController: ProcessTapControlling {
     let app: AudioApp
     private let logger: Logger
@@ -664,7 +665,8 @@ final class ProcessTapController: ProcessTapControlling {
     }
 
     deinit {
-        invalidate()
+        secondaryResources.destroyAsync()
+        primaryResources.destroyAsync()
     }
 
     // MARK: - Crossfade Operations

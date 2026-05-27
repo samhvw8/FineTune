@@ -253,25 +253,31 @@ private struct MockDeviceRow: View {
     }
 }
 
-#Preview("Popup Size Tiles") {
-    @Previewable @State var dark: MenuBarPopupSize = .comfortable
-    @Previewable @State var light: MenuBarPopupSize = .comfortable
-    return VStack(spacing: 24) {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Dark").font(.caption).foregroundStyle(.secondary)
-            PopupSizeTilePicker(selection: $dark)
-        }
-        .padding(16)
-        .background(Color(white: 0.10))
-        .preferredColorScheme(.dark)
+private struct PopupSizeTilesPreview: View {
+    @State private var dark: MenuBarPopupSize = .comfortable
+    @State private var light: MenuBarPopupSize = .comfortable
+    var body: some View {
+        VStack(spacing: 24) {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Dark").font(.caption).foregroundStyle(.secondary)
+                PopupSizeTilePicker(selection: $dark)
+            }
+            .padding(16)
+            .background(Color(white: 0.10))
+            .preferredColorScheme(.dark)
 
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Light").font(.caption).foregroundStyle(.secondary)
-            PopupSizeTilePicker(selection: $light)
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Light").font(.caption).foregroundStyle(.secondary)
+                PopupSizeTilePicker(selection: $light)
+            }
+            .padding(16)
+            .background(Color(white: 0.96))
+            .preferredColorScheme(.light)
         }
-        .padding(16)
-        .background(Color(white: 0.96))
-        .preferredColorScheme(.light)
+        .padding(20)
     }
-    .padding(20)
+}
+
+#Preview("Popup Size Tiles") {
+    PopupSizeTilesPreview()
 }

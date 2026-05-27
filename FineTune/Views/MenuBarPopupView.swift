@@ -94,7 +94,7 @@ struct MenuBarPopupView: View {
     /// descendant) has focus, so the body root holds a focus anchor.
     @FocusState private var anchorFocused: Bool
 
-    @Environment(\.openSettings) private var openSettings
+    // Use NSApp to open settings since OpenSettingsAction type is not available in Xcode 15
 
     // MARK: - Resolved Dimensions
 
@@ -195,11 +195,11 @@ struct MenuBarPopupView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification)) { notification in
             // Global notification — fires for every window in the process. Filter to
-            // FluidMenuBarExtra's popup window so unrelated windows (the HID-tap
+            // the menu bar popup panel so unrelated windows (the HID-tap
             // primer, NSAlert panels, etc.) don't mark the popup as visible and
             // suppress the HUD.
             guard let window = notification.object as? NSWindow,
-                  String(describing: type(of: window)).contains("FluidMenuBarExtra")
+                  window is MenuBarPopupPanel
             else { return }
             isPopupVisible = true
             popupVisibility.isVisible = true
@@ -211,7 +211,7 @@ struct MenuBarPopupView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: NSWindow.didResignKeyNotification)) { notification in
             guard let window = notification.object as? NSWindow,
-                  String(describing: type(of: window)).contains("FluidMenuBarExtra")
+                  window is MenuBarPopupPanel
             else { return }
             isPopupVisible = false
             popupVisibility.isVisible = false
@@ -309,8 +309,9 @@ struct MenuBarPopupView: View {
     private func openSettingsWindow() {
         exitEditModeSaving()
         NSApp.keyWindow?.resignKey()
-        NSApp.activate(ignoringOtherApps: true)
-        openSettings()
+        if let delegate = NSApp.delegate as? AppDelegate {
+            delegate.showSettingsWindow()
+        }
     }
 
     // MARK: - Main Content

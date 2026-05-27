@@ -67,7 +67,8 @@ final class AudioRecordingPermission {
             object: nil,
             queue: .main
         ) { [weak self] _ in
-            Task { @MainActor in
+            guard let self else { return }
+            Task { @MainActor [weak self] in
                 self?.refreshStatus()
             }
         }

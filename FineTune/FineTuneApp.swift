@@ -1,15 +1,67 @@
 // FineTune/FineTuneApp.swift
 import SwiftUI
 import UserNotifications
-import FluidMenuBarExtra
 import AppKit
 import os
 
 private let logger = Logger(subsystem: "com.finetuneapp.FineTune", category: "App")
 
+// MARK: - Menu Bar Popup Panel
+
+/// Custom NSPanel that replicates FluidMenuBarExtra's popup behavior:
+/// appears below the status item, dismisses on resign-key, no dock icon,
+/// vibrancy popover material, status-bar level.
+final class MenuBarPopupPanel: NSPanel {
+    override var canBecomeKey: Bool { true }
+
+    init(title: String) {
+        super.init(
+            contentRect: CGRect(x: 0, y: 0, width: 100, height: 100),
+            styleMask: [.titled, .nonactivatingPanel, .utilityWindow, .fullSizeContentView],
+            backing: .buffered,
+            defer: false
+        )
+        self.title = title
+        isMovable = false
+        isMovableByWindowBackground = false
+        isFloatingPanel = true
+        level = .statusBar
+        isOpaque = false
+        titleVisibility = .hidden
+        titlebarAppearsTransparent = true
+        animationBehavior = .none
+        collectionBehavior = [.stationary, .moveToActiveSpace, .fullScreenAuxiliary]
+        isReleasedWhenClosed = false
+        hidesOnDeactivate = false
+
+        standardWindowButton(.closeButton)?.isHidden = true
+        standardWindowButton(.miniaturizeButton)?.isHidden = true
+        standardWindowButton(.zoomButton)?.isHidden = true
+    }
+}
+
+// MARK: - AppDelegate
+
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate {
     var audioEngine: AudioEngine?
+    var settingsWindowController: NSWindowController?
+    var settingsContentProvider: (() -> AnyView)?
+
+    /// The app's NSStatusItem — created in `applicationDidFinishLaunching`.
+    private(set) var statusItem: NSStatusItem?
+    /// The popup panel shown below the status item.
+    private var popupPanel: MenuBarPopupPanel?
+    /// Content builder for the popup panel.
+    var popupContentProvider: (() -> AnyView)?
+    /// Event monitors for dismiss-on-click-outside behavior.
+    private var localEventMonitor: Any?
+    private var globalEventMonitor: Any?
+    /// Icon to set on the status item once it's created. Stored during init,
+    /// applied in applicationDidFinishLaunching when NSApplication is ready.
+    var pendingLaunchIcon: NSImage?
+    /// Callback fired once the status item's button is ready.
+    var onStatusItemReady: ((NSStatusBarButton) -> Void)?
 
     func application(_ application: NSApplication, open urls: [URL]) {
         guard let audioEngine = audioEngine else {
@@ -34,7 +86,187 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         false
     }
+
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        // Close any windows that the WindowGroup scene may auto-open.
+        // LSUIElement apps should have zero visible windows at launch.
+        for window in NSApp.windows {
+            if window !== popupPanel && window !== settingsWindowController?.window {
+                window.orderOut(nil)
+            }
+        }
+
+        // Create the status item now that NSApplication's window server
+        // connection is fully initialized (CGSConnectionByID crashes
+        // if called from the App struct's init).
+        if let icon = pendingLaunchIcon {
+            setupStatusItem(icon: icon)
+            pendingLaunchIcon = nil
+            if let button = statusItem?.button {
+                onStatusItemReady?(button)
+                onStatusItemReady = nil
+            }
+        }
+    }
+
+    func showSettingsWindow() {
+        if let wc = settingsWindowController {
+            wc.window?.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+            return
+        }
+        guard let contentProvider = settingsContentProvider else { return }
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 550, height: 450),
+            styleMask: [.titled, .closable, .resizable],
+            backing: .buffered,
+            defer: false
+        )
+        window.title = "FineTune Settings"
+        window.center()
+        window.contentView = NSHostingView(rootView: contentProvider())
+        window.isReleasedWhenClosed = false
+        let wc = NSWindowController(window: window)
+        settingsWindowController = wc
+        wc.showWindow(nil)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+
+    // MARK: - Status Item
+
+    func setupStatusItem(icon: NSImage) {
+        let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        item.button?.image = icon
+        item.button?.setAccessibilityTitle("FineTune")
+        item.button?.target = self
+        item.button?.action = #selector(statusItemClicked(_:))
+        item.button?.sendAction(on: [.leftMouseUp, .rightMouseUp])
+        statusItem = item
+    }
+
+    @objc private func statusItemClicked(_ sender: NSStatusBarButton) {
+        togglePopup()
+    }
+
+    // MARK: - Popup Panel
+
+    func togglePopup() {
+        guard let panel = popupPanel else {
+            showPopup()
+            return
+        }
+        if panel.isVisible {
+            dismissPopup()
+        } else {
+            showPopup()
+        }
+    }
+
+    private func showPopup() {
+        guard let button = statusItem?.button,
+              let contentProvider = popupContentProvider else { return }
+
+        let panel: MenuBarPopupPanel
+        if let existing = popupPanel {
+            panel = existing
+        } else {
+            panel = MenuBarPopupPanel(title: "FineTune")
+            panel.delegate = self
+            popupPanel = panel
+
+            let hostingView = NSHostingView(rootView: contentProvider())
+            panel.contentView = hostingView
+        }
+
+        // Size the panel from the hosting view's fitting size.
+        if let hostingView = panel.contentView {
+            let fittingSize = hostingView.fittingSize
+            if fittingSize.width > 10 && fittingSize.height > 10 {
+                panel.setContentSize(fittingSize)
+            } else {
+                panel.setContentSize(NSSize(width: 360, height: 500))
+            }
+        }
+
+        positionPanelBelowButton(panel, button: button)
+
+        // Persist the menu bar in full screen mode (same notification FluidMenuBarExtra used).
+        DistributedNotificationCenter.default().post(
+            name: Notification.Name("com.apple.HIToolbox.beginMenuTrackingNotification"),
+            object: nil
+        )
+        panel.alphaValue = 1
+        panel.orderFrontRegardless()
+        panel.makeKeyAndOrderFront(nil)
+        statusItem?.button?.highlight(true)
+
+        // Start global event monitor for clicks outside
+        globalEventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown]) { [weak self] _ in
+            self?.dismissPopup()
+        }
+    }
+
+    private func positionPanelBelowButton(_ panel: NSPanel, button: NSStatusBarButton) {
+        guard let buttonWindow = button.window else { return }
+        let buttonRect = button.convert(button.bounds, to: nil)
+        let screenRect = buttonWindow.convertToScreen(buttonRect)
+
+        var origin = CGPoint(
+            x: screenRect.minX,
+            y: screenRect.minY - panel.frame.height
+        )
+
+        if let screen = buttonWindow.screen ?? NSScreen.main {
+            let visibleFrame = screen.visibleFrame
+            if origin.x + panel.frame.width > visibleFrame.maxX {
+                origin.x = screenRect.maxX - panel.frame.width
+            }
+            if origin.x < visibleFrame.minX {
+                origin.x = visibleFrame.minX
+            }
+        }
+
+        panel.setFrameOrigin(origin)
+    }
+
+    func dismissPopup() {
+        DistributedNotificationCenter.default().post(
+            name: Notification.Name("com.apple.HIToolbox.endMenuTrackingNotification"),
+            object: nil
+        )
+
+        if let monitor = globalEventMonitor {
+            NSEvent.removeMonitor(monitor)
+            globalEventMonitor = nil
+        }
+
+        guard let panel = popupPanel, panel.isVisible else { return }
+
+        NSAnimationContext.runAnimationGroup { context in
+            context.duration = 0.3
+            context.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+            panel.animator().alphaValue = 0
+        } completionHandler: { [weak self] in
+            panel.orderOut(nil)
+            panel.alphaValue = 1
+            self?.statusItem?.button?.highlight(false)
+        }
+    }
 }
+
+extension AppDelegate: NSWindowDelegate {
+    func windowDidBecomeKey(_ notification: Notification) {
+        guard let window = notification.object as? NSWindow, window === popupPanel else { return }
+        statusItem?.button?.highlight(true)
+    }
+
+    func windowDidResignKey(_ notification: Notification) {
+        guard let window = notification.object as? NSWindow, window === popupPanel else { return }
+        dismissPopup()
+    }
+}
+
+// MARK: - App
 
 @main
 struct FineTuneApp: App {
@@ -50,52 +282,17 @@ struct FineTuneApp: App {
     @State private var shortcutsRegistry: ShortcutsRegistry
     @State private var resolver: TargetAppResolver
     @StateObject private var updateManager = UpdateManager()
-    @State private var showMenuBarExtra = true
-
-    /// Snapshot icon computed at launch from the user's chosen style and the current
-    /// default-device volume/mute. The coordinator keeps it in sync afterwards.
-    private let launchIconImage: NSImage
 
     var body: some Scene {
-        // Declared before FluidMenuBarExtra so this Settings scene wins over
-        // FluidMenuBarExtra's `Settings {}` placeholder. Both ⌘, and the
-        // gear button route here via openSettings().
-        Settings {
-            SettingsRootView(
-                settings: audioEngine.settingsManager,
-                audioEngine: audioEngine,
-                deviceVolumeMonitor: audioEngine.deviceVolumeMonitor as! DeviceVolumeMonitor,
-                accessibility: accessibility,
-                mediaKeyStatus: mediaKeyStatus,
-                mediaKeyMonitor: mediaKeyMonitor,
-                shortcutsRegistry: shortcutsRegistry,
-                updateManager: updateManager
-            )
-        }
-        FluidMenuBarExtra("FineTune", image: launchIconImage, isInserted: $showMenuBarExtra) {
-            menuBarContent
-        }
-    }
-
-    @ViewBuilder
-    private var menuBarContent: some View {
-        // `deviceVolumeMonitor` is declared as `any DeviceVolumeProviding` on
-        // AudioEngine so tests can inject mocks; in production it's always the
-        // concrete `DeviceVolumeMonitor` that this view consumes directly.
-        MenuBarPopupView(
-            audioEngine: audioEngine,
-            deviceVolumeMonitor: audioEngine.deviceVolumeMonitor as! DeviceVolumeMonitor,
-            updateManager: updateManager,
-            permission: audioEngine.permission,
-            accessibility: accessibility,
-            mediaKeyStatus: mediaKeyStatus,
-            popupVisibility: popupVisibility,
-            hudController: hudController,
-            mediaKeyMonitor: mediaKeyMonitor
-        )
-        .task {
-            // Idempotent: subsequent task runs (popup re-open) are no-ops inside start().
-            shortcutsRegistry.start()
+        // Minimal scene that satisfies the `some Scene` requirement without
+        // triggering the macOS 14 / Xcode 15 `Settings { EmptyView() }` crash.
+        // The WindowGroup never actually shows — applicationDidFinishLaunching
+        // closes it, and applicationShouldTerminateAfterLastWindowClosed keeps
+        // the agent app alive.
+        WindowGroup(id: "finetune-hidden") {
+            EmptyView()
+                .frame(width: 0, height: 0)
+                .hidden()
         }
     }
 
@@ -156,11 +353,9 @@ struct FineTuneApp: App {
 
         let coordinator = MenuBarIconCoordinator(deviceVolumeMonitor: engine.deviceVolumeMonitor as! DeviceVolumeMonitor, settings: settings)
         monitor.iconCoordinator = coordinator
-        // Defer start() so NSApplication.shared is fully bootstrapped before we walk NSApp.windows.
-        DispatchQueue.main.async { [coordinator] in coordinator.start() }
         _iconCoordinator = State(initialValue: coordinator)
 
-        // Render the scene's first frame with the user's chosen style instead of a generic
+        // Render the status item's first frame with the user's chosen style instead of a generic
         // placeholder, so non-speaker styles don't briefly flash a speaker icon at launch.
         let launchVolumeMonitor = engine.deviceVolumeMonitor
         let launchID = launchVolumeMonitor.defaultDeviceID
@@ -169,8 +364,17 @@ struct FineTuneApp: App {
             volume: launchVolumeMonitor.volumes[launchID] ?? 1.0,
             muted: launchVolumeMonitor.muteStates[launchID] ?? false
         )
-        launchIconImage = launchState.image.nsImage()
+        let launchIconImage = launchState.image.nsImage()
             ?? NSImage(systemSymbolName: "speaker.wave.2", accessibilityDescription: "FineTune")!
+
+        // Defer status item creation to applicationDidFinishLaunching —
+        // NSStatusBar.system.statusItem crashes with a CGSConnectionByID
+        // assertion if called before NSApplication is fully bootstrapped.
+        _appDelegate.wrappedValue.pendingLaunchIcon = launchIconImage
+        _appDelegate.wrappedValue.onStatusItemReady = { [weak coordinator] button in
+            coordinator?.statusButton = button
+            coordinator?.start()
+        }
 
         // Start Accessibility polling immediately so `isTrustedCached` is live
         // before the user first opens Settings. The trust-flip callback wires
@@ -184,9 +388,7 @@ struct FineTuneApp: App {
         monitor.reconcile()
 
         // Global hotkeys (KeyboardShortcuts SPM, Carbon-backed; no Accessibility
-        // permission required for the hotkey itself). Registry start() is deferred
-        // to a SwiftUI `.task` on the popup content so the FluidMenuBarExtra
-        // status item has been materialized before any hotkey can fire.
+        // permission required for the hotkey itself).
         let popupController = MenuBarPopupController()
         let resolver = TargetAppResolver(
             ownBundleID: Bundle.main.bundleIdentifier ?? "com.finetuneapp.FineTune"
@@ -203,8 +405,51 @@ struct FineTuneApp: App {
         _shortcutsRegistry = State(initialValue: registry)
         _resolver = State(initialValue: resolver)
 
+        // Wire the popup controller to the AppDelegate's toggle method.
+        popupController.appDelegate = _appDelegate.wrappedValue
+
         // Pass engine to AppDelegate
         _appDelegate.wrappedValue.audioEngine = engine
+        _appDelegate.wrappedValue.settingsContentProvider = { [weak engine, weak accessibilityService, weak statusService, weak monitor, weak registry, updateManager] in
+            guard let engine, let accessibilityService, let statusService, let monitor, let registry else {
+                return AnyView(EmptyView())
+            }
+            return AnyView(
+                SettingsRootView(
+                    settings: engine.settingsManager,
+                    audioEngine: engine,
+                    deviceVolumeMonitor: engine.deviceVolumeMonitor as! DeviceVolumeMonitor,
+                    accessibility: accessibilityService,
+                    mediaKeyStatus: statusService,
+                    mediaKeyMonitor: monitor,
+                    shortcutsRegistry: registry,
+                    updateManager: updateManager
+                )
+            )
+        }
+
+        // Build the popup content provider for the menu bar panel.
+        _appDelegate.wrappedValue.popupContentProvider = { [weak engine, weak accessibilityService, weak statusService, weak popupService, weak hud, weak monitor, weak registry, updateManager] in
+            guard let engine, let accessibilityService, let statusService, let popupService, let hud, let monitor else {
+                return AnyView(EmptyView())
+            }
+            return AnyView(
+                MenuBarPopupView(
+                    audioEngine: engine,
+                    deviceVolumeMonitor: engine.deviceVolumeMonitor as! DeviceVolumeMonitor,
+                    updateManager: updateManager,
+                    permission: engine.permission,
+                    accessibility: accessibilityService,
+                    mediaKeyStatus: statusService,
+                    popupVisibility: popupService,
+                    hudController: hud,
+                    mediaKeyMonitor: monitor
+                )
+                .task {
+                    registry?.start()
+                }
+            )
+        }
 
         if permission.status == .unknown {
             permission.request()

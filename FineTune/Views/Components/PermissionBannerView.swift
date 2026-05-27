@@ -1,6 +1,7 @@
 // FineTune/Views/Components/PermissionBannerView.swift
 import SwiftUI
 
+@MainActor
 struct PermissionBannerView: View {
     let permission: AudioRecordingPermission
 

@@ -173,29 +173,35 @@ private struct UserPresetItemView: View {
 
 // MARK: - Previews
 
-#Preview("With User Presets") {
-    let sampleUser = [
-        UserEQPreset(name: "My Bass Boost", settings: EQSettings(bandGains: [6, 5, 4, 0, 0, 0, 0, 0, 0, 0])),
-        UserEQPreset(name: "Studio Monitor", settings: EQSettings(bandGains: [0, 0, 0, 0, 0, 0, 1, 2, 2, 2]))
-    ]
-    VStack(spacing: 20) {
-        EQPresetPicker(
-            selectedItem: EQPickerItem(builtIn: .rock),
-            userPresets: sampleUser,
-            onBuiltInSelected: { _ in },
-            onUserPresetSelected: { _ in },
-            onDeleteUserPreset: { _ in },
-            onRenameUserPreset: { _, _ in }
-        )
-        EQPresetPicker(
-            selectedItem: nil,
-            userPresets: [],
-            onBuiltInSelected: { _ in },
-            onUserPresetSelected: { _ in },
-            onDeleteUserPreset: { _ in },
-            onRenameUserPreset: { _, _ in }
-        )
+private struct EQPresetPickerPreview: View {
+    var body: some View {
+        let sampleUser = [
+            UserEQPreset(name: "My Bass Boost", settings: EQSettings(bandGains: [6, 5, 4, 0, 0, 0, 0, 0, 0, 0])),
+            UserEQPreset(name: "Studio Monitor", settings: EQSettings(bandGains: [0, 0, 0, 0, 0, 0, 1, 2, 2, 2]))
+        ]
+        VStack(spacing: 20) {
+            EQPresetPicker(
+                selectedItem: EQPickerItem(builtIn: .rock),
+                userPresets: sampleUser,
+                onBuiltInSelected: { _ in },
+                onUserPresetSelected: { _ in },
+                onDeleteUserPreset: { _ in },
+                onRenameUserPreset: { _, _ in }
+            )
+            EQPresetPicker(
+                selectedItem: nil,
+                userPresets: [],
+                onBuiltInSelected: { _ in },
+                onUserPresetSelected: { _ in },
+                onDeleteUserPreset: { _ in },
+                onRenameUserPreset: { _, _ in }
+            )
+        }
+        .padding()
+        .background(Color.black)
     }
-    .padding()
-    .background(Color.black)
+}
+
+#Preview("With User Presets") {
+    EQPresetPickerPreview()
 }
