@@ -10,7 +10,7 @@ import os
 // 1. **Main thread / @MainActor**: All setup, teardown, and state management.
 //    - activate(), invalidate(), updateDevices(), performCrossfadeSwitch()
 //    - Property writes to nonisolated(unsafe) vars (_volume, _isMuted, etc.)
-//    - This class is NOT @MainActor itself because the HAL I/O callback is not on main.
+//    - This class IS @MainActor; the HAL I/O callback accesses only nonisolated(unsafe) vars.
 //
 // 2. **HAL I/O thread (real-time)**: Audio processing callback.
 //    - processAudioCallback() — unified callback with runtime role via callbackID

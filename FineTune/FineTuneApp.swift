@@ -54,9 +54,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
     private var popupPanel: MenuBarPopupPanel?
     /// Content builder for the popup panel.
     var popupContentProvider: (() -> AnyView)?
-    /// Event monitors for dismiss-on-click-outside behavior.
-    private var localEventMonitor: Any?
+    /// Event monitor for dismiss-on-click-outside behavior.
     private var globalEventMonitor: Any?
+    /// Guards against re-entrant dismiss calls during fade animation.
+    private var isDismissing = false
     /// Icon to set on the status item once it's created. Stored during init,
     /// applied in applicationDidFinishLaunching when NSApplication is ready.
     var pendingLaunchIcon: NSImage?
@@ -195,8 +196,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
             name: Notification.Name("com.apple.HIToolbox.beginMenuTrackingNotification"),
             object: nil
         )
+        isDismissing = false
         panel.alphaValue = 1
-        panel.orderFrontRegardless()
+        NSApp.activate(ignoringOtherApps: true)
         panel.makeKeyAndOrderFront(nil)
         statusItem?.button?.highlight(true)
 
@@ -224,12 +226,19 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
             if origin.x < visibleFrame.minX {
                 origin.x = visibleFrame.minX
             }
+            if origin.y < visibleFrame.minY {
+                origin.y = visibleFrame.minY
+            }
         }
 
         panel.setFrameOrigin(origin)
     }
 
     func dismissPopup() {
+        guard !isDismissing else { return }
+        guard let panel = popupPanel, panel.isVisible else { return }
+        isDismissing = true
+
         DistributedNotificationCenter.default().post(
             name: Notification.Name("com.apple.HIToolbox.endMenuTrackingNotification"),
             object: nil
@@ -240,8 +249,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
             globalEventMonitor = nil
         }
 
-        guard let panel = popupPanel, panel.isVisible else { return }
-
         NSAnimationContext.runAnimationGroup { context in
             context.duration = 0.3
             context.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
@@ -250,6 +257,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
             panel.orderOut(nil)
             panel.alphaValue = 1
             self?.statusItem?.button?.highlight(false)
+            self?.isDismissing = false
         }
     }
 }
