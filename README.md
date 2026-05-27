@@ -14,7 +14,7 @@ Control the volume of every app independently, boost quiet ones up to 4x, route 
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPLv3-3a3a3c?style=for-the-badge&labelColor=1c1c1e" alt="License: GPL v3"></a>
   <a href="https://ko-fi.com/ronitsingh10"><img src="https://img.shields.io/badge/Tip_on_Ko--fi-FF5E5B?style=for-the-badge&labelColor=1c1c1e&logo=ko-fi&logoColor=white" alt="Tip on
   Ko-fi"></a>
-  <a href="https://www.apple.com/macos/"><img src="https://img.shields.io/badge/macOS-15%2B-3a3a3c?style=for-the-badge&labelColor=1c1c1e&logo=apple&logoColor=white" alt="macOS 15+"></a>
+  <a href="https://www.apple.com/macos/"><img src="https://img.shields.io/badge/macOS-14.2%2B-3a3a3c?style=for-the-badge&labelColor=1c1c1e&logo=apple&logoColor=white" alt="macOS 14.2+"></a>
 </p>
 
 <p align="center">
@@ -37,6 +37,8 @@ brew install --cask finetune
 ```
 
 **Manual** — [Download latest release](https://github.com/ronitsingh10/FineTune/releases/latest)
+
+> **macOS 14 (Sonoma) support:** This fork supports macOS 14.2+ by replacing FluidMenuBarExtra with a direct NSStatusItem/NSPanel approach and converting the Xcode project to format 56 (Xcode 15 compatible). See the `feat/macos-14-support` branch.
 
 ## Quick Start
 
