@@ -201,7 +201,7 @@ final class AudioProcessMonitor: AudioProcessMonitoring {
         }
     }
 
-    private func refresh() {
+    func refresh() {
         do {
             let processIDs = try AudioObjectID.readProcessList()
             let runningApps = NSWorkspace.shared.runningApplications

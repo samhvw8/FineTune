@@ -704,6 +704,15 @@ struct MenuBarPopupView: View {
                     .font(.callout)
                     .foregroundStyle(DesignTokens.Colors.textSecondary)
 
+                Button {
+                    audioEngine.processMonitor.refresh()
+                } label: {
+                    Label("Rescan", systemImage: "arrow.clockwise")
+                        .font(DesignTokens.Typography.caption)
+                }
+                .buttonStyle(.plain)
+                .foregroundStyle(DesignTokens.Colors.accentPrimary)
+
                 let ignoredCount = audioEngine.settingsManager.getIgnoredAppInfo().count
                 if ignoredCount > 0 {
                     Text("\(ignoredCount) ignored · edit to manage")

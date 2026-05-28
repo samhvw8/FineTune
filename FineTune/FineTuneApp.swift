@@ -269,14 +269,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
     }
 
     /// Re-read the hosting view's fitting size and resize the panel + reposition.
+    /// Enforces the configured popup width as a minimum to prevent shrinking.
     func updatePanelSize(_ panel: MenuBarPopupPanel? = nil) {
         guard let panel = panel ?? popupPanel,
               let hostingView = panel.contentView else { return }
         let fittingSize = hostingView.fittingSize
-        if fittingSize.width > 10 && fittingSize.height > 10 {
-            panel.setContentSize(fittingSize)
-        } else {
-            panel.setContentSize(NSSize(width: 360, height: 500))
+        let minWidth = panel.frame.width
+        if fittingSize.height > 10 {
+            let width = max(fittingSize.width, minWidth)
+            panel.setContentSize(NSSize(width: width, height: fittingSize.height))
         }
         if panel.isVisible, let button = statusItem?.button {
             positionPanelBelowButton(panel, button: button)

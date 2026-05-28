@@ -5,4 +5,5 @@ protocol AudioProcessMonitoring: AnyObject {
 
     func start()
     func stop()
+    func refresh()
 }
